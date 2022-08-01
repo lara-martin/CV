@@ -1,3 +1,15 @@
+<h1>
+ Pretty Academic CV Template
+</h1>
+
+Author: Lara J. Martin (laramar@seas.upenn.edu)
+
+Adaptation of the <a href="https://github.com/Denubis/Academic-LaTeX-CV-BibTeX-CSV">Academic CV</a> by Brian Ballsun-Stanton (brian.ballsun-stanton@mq.edu.au), which was originally an adaptation of Awesome CV by Claud D. Park (posquit0.bj@gmail.com / http://www.posquit0.com) -- see below.
+
+
+------------------------------------------
+
+Original CV template info:
 <h1 align="center">
   <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
     <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
