@@ -1,0 +1,180 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+
+{\color{black}\fontsize{12pt}{1em}\faIcon{comments}} \cvsection{Professional Activities -- Conference Organization}
+
+\DTLloaddb[]{organizing}{cv/organizing.csv}
+\cvsubsection{Summary}
+\def\organizer{0}
+\def\chair{0}
+\def\reviewer{0}
+\def\attendee{0}
+\def\totalconf{0}
+
+
+\DTLforeach{organizing}{%
+\status=GeneralRole}{%
+\DTLifeq{\status}{Organizer}{%
+\DTLgadd{\organizer}{1}{\organizer}%
+}{}%
+\DTLifeq{\status}{Chair}{%
+\DTLgadd{\chair}{1}{\chair}%
+}{}%
+\DTLifeq{\status}{Reviewer}{%
+\DTLgadd{\reviewer}{1}{\reviewer}%
+}{}%
+\DTLifeq{\status}{Attendee}{%
+\DTLgadd{\attendee}{1}{\attendee}%
+}{}%
+}
+\DTLsavelastrowcount{\totalconf}
+
+
+
+
+\begin{cvhonors}
+%\cvhonor{Carpentries Workshops}{Carpentries branded events and instructor training}{2017 -- Present}{\carpentries{}}
+%\cvhonor{Long workshops}{}{2017 -- Present}{\longpres{}}
+\cvhonor{Organizer}{}{2020 -- Present}{\organizer{}}
+\cvhonor{Chair Positions}{}{2018 -- Present}{\chair{}}
+\cvhonor{Program Committee Member/Reviewer}{}{2018 -- Present}{\reviewer{}}
+\cvhonor{Community-Based Conference Attendee}{}{2013 -- Present}{\attendee{}}
+\cvhonor{Total Participation}{}{2013 -- Present}{\totalconf{}}
+\end{cvhonors}
+
+
+
+\cvsubsection{Organizer}
+
+
+\begin{cventries}
+\DTLforeach[\equal{\generalRole}{Organizer}]{organizing}{%
+%ProjectName	Date	Role	Location	Description1	Description2    
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link}%
+{%
+ \cventry
+    {} % subhead
+    {\href{\link}{\projectname}} % head
+    {\date} % green
+    {\location}% % flushright grey
+    {%
+    }
+}
+\end{cventries}
+
+
+\cvsubsection{Chair Positions}
+
+
+\begin{cventries}
+\DTLforeach[\equal{\generalRole}{Chair}]{organizing}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link}%
+{%
+ \cventry
+    {\role} % subhead
+    {\projectname} % head
+    {\date} % green
+    {\location} % flushright grey
+    {%
+    }
+}
+\end{cventries}
+
+\vspace{10pt}
+\cvsubsection{Program Committee Member}
+
+
+\begin{cventries}
+\DTLforeach[\equal{\role}{Program Committee Member}]{organizing}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link,
+\type=type}%
+{%
+ \cventry
+    {\type} % subhead
+    {\projectname} % head
+    {\date} % green
+    {\location} % flushright grey
+    {}%
+}
+\end{cventries}
+
+
+\cvsubsection{Journal Reviewer}
+
+
+\begin{cventries}
+\DTLforeach[\equal{\role}{Journal Reviewer}]{organizing}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link}%
+{%
+    \begin{cvreviews}
+    \cvreview
+    {\projectname} % head
+    {\date} % green
+    \end{cvreviews}
+}
+\end{cventries}
+\vspace{10pt}
+
+\cvsubsection{ACL Rolling Review}
+
+
+
+\begin{cventries}
+\DTLforeach[\equal{\role}{ACL Rolling Review}]{organizing}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link}%
+{%
+    \begin{cvreviews}
+      \cvreview
+        {Reviewer}% Award
+        {\date}% Date(s)
+    \end{cvreviews}
+}
+\end{cventries}
+
+\vspace{10pt}
+\cvsubsection{Community-Based Conference Attendance}
+
+
+
+\begin{cventries}
+\DTLforeach[\equal{\generalRole}{Attendee}]{organizing}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link}%
+{%
+    \begin{cvreviews}
+    \cvreview
+    {\projectname} % head
+    {\date} % green
+    \end{cvreviews}
+}
+\end{cventries}

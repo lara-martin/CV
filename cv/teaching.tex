@@ -1,0 +1,39 @@
+
+\DTLloaddb[]{teaching}{cv/teaching.csv}
+
+%\newpage
+
+{\color{black}\fontsize{12pt}{1em}\faIcon{chalkboard-teacher}} \cvsection{Teaching}
+
+\begin{cventries}
+\DTLforeach{teaching}{%
+%ProjectName    Date    Role    Location    Description1    Description2    
+\projectname=ProjectName,%
+\date=Date,%
+\role=Role,%
+\location=Location,%
+\descone=Description1%
+}%
+{%
+    \DTLifnullorempty{\descone}
+    {
+    \cventryNoNote
+    {\role} % subhead
+    {\projectname} % head
+    {\date} % green
+    {\location} % flushright grey
+    }%
+    {%
+    \cventry
+    {\role} % subhead
+    {\projectname} % head
+    {\date} % green
+    {\location} % flushright grey
+    {%
+    \begin{cvitems}
+    \item \descone%
+    \end{cvitems}
+    }%
+    }%
+}
+\end{cventries}

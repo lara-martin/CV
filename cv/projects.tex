@@ -1,0 +1,83 @@
+{\color{black}\fontsize{12pt}{1em}\faIcon{box}} \cvsection{Projects}
+
+% \DTLloaddb[]{projects}{cv/projects.csv}
+
+% \cvsubsection{Summary}
+% \def\projectaffiliated{0}
+% \def\projectexternal{0}
+% \def\projecttotal{0}
+
+% \DTLforeach{projects}{%
+% %GrantAffiliated	External
+% \affiliated=GrantAffiliated,%
+% \external=External}{%
+% \DTLgadd{\projectaffiliated}{\affiliated}{\projectaffiliated}%
+% \DTLgadd{\projectexternal}{\external}{\projectexternal}%
+% \DTLgadd{\projecttotal}{1}{\projecttotal}%
+% }
+% \begin{cvhonors}
+% \cvhonor{projects with external funding}{excluding FAIMS sub-projects}{2012 -- Present}{\projectaffiliated{}}
+% \cvhonor{projects with external impact}{excluding FAIMS sub-projects}{2012 -- Present}{\projectexternal{}}
+% \cvhonor{total projects}{excluding FAIMS sub-projects}{2012 -- Present}{\projecttotal{}}
+% \cvhonor{FAIMS sub-projects}{modules, extensions, and custom exporters}{2014 -- Present}{64}
+% \end{cvhonors}
+% \cvsubsection{Project Details}
+% \begin{cventries}
+% \DTLforeach{projects}{%
+% %ProjectName	StartYear	StopYear	Collaborator	Tools	Description1	Description2
+% \projectname=ProjectName,%
+% \startyear=StartYear,%
+% \stopyear=StopYear,%
+% \collaborator=Collaborator,%
+% \tools=Tools,%
+% \descone=Description1,%
+% \desctwo=Description2}%
+% {%
+%  \cventry
+%     {\tools} % subhead
+%     {\projectname} % head
+%     {\startyear{} -- \DTLifnullorempty{\stopyear}{Present}{\stopyear{}}} % green
+%     {\collaborator} % flushright grey
+%     {%
+%     %\ifthenelse{\DTLcurrentindex=16}{\dtlbreak}{}%
+%     \DTLifnullorempty
+%         {\descone}
+%         {}
+%         {\begin{cvitems}
+%         \item \descone%
+%         \DTLifnullorempty
+%             {\desctwo}
+%             {}
+%             {\item \desctwo}
+%         \end{cvitems}
+%         }
+%     }
+% }
+
+
+
+% \end{cventries}
+
+{\color{teal}\faIcon{icons} {\bf Human-AI Communication and Computational Creativity.}} {\bodyfontlight Collaboration between people and AI, primarily through storytelling.}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{.2cm} L{6cm} L{\textwidth - 10cm} @{\extracolsep{\fill}}R{3cm}}
+    \setlength{\extrarowheight}{5pt}
+    \faIcon{book-open} & Story generation &  \cite{martin2016improvisational,martin2017improvisational,martin2017event,martin2018event,ammanabrolu2019guided,tambwekar2019controllable,ammanabrolu2020story,martin2021thesis,Alabdulkarim2021,Li2022} & \entrylocationstyle{2015-Present}\\
+    \faIcon{d-and-d} & D\&D as an AI challenge & \cite{martin2018dungeons,CallisonBurch2022,Papazov2022, CallisonBurchSubmitted} & \entrylocationstyle{2018-Present}\\
+    \faIcon{mobile} & Conversational agents & \cite{panagopoulouquakerbot}, See also: Amazon internship & \entrylocationstyle{2011, 2017, 2022}
+\end{tabular*}
+
+\vspace{.1cm}
+
+{\color{teal}\faIcon{people-arrows} {\bf Human-Human Communication.}} {\bodyfontlight Analysis of human-human communication or computer-mediated communication.}
+
+
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{.2cm} L{9cm} L{5.8cm} R{2cm}}
+    \setlength{\extrarowheight}{5pt}
+    \faIcon{frown-open} & Emotion recognition \& affective computing &  \cite{martin2014methodology,cosentino2014,Yu2014,Yu2015}& \entrylocationstyle{2013-2015}\\
+    \faIcon{language} & Translation \& language learning & \cite{wolfeapplause,martin2015utterance}& \entrylocationstyle{2015}\\
+    \faIcon{comments} & Online communities  &\cite{moon2014identifying,GiorgiSubmitted} & \entrylocationstyle{2014, 2022}\\
+    \faIcon{tty} & Augmentative and Alternative Communication (AAC) & In progress. & \entrylocationstyle{2022-Present}\\
+\end{tabular*}
+

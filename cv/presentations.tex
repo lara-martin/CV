@@ -1,0 +1,159 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+
+{\color{black}\fontsize{12pt}{1em}\faIcon{chart-bar}} \cvsection{Professional Activities - Presentations}
+
+\DTLloaddb[]{presentations}{cv/presentations.csv}
+\cvsubsection{Summary}
+%\def\invitedpres{0}
+\def\campuspres{0}
+\def\conferencepres{0}
+\def\lecture{0}
+\def\totalpres{0}
+
+
+\DTLforeach{presentations}{%
+\status=Status}{%
+\DTLifeq{\status}{Campus}{%
+\DTLgadd{\campuspres}{1}{\campuspres}%
+}{}%
+\DTLifeq{\status}{Conference}{%
+\DTLgadd{\conferencepres}{1}{\conferencepres}%
+}{}%
+\DTLifeq{\status}{Guest Lecture}{%
+\DTLgadd{\lecture}{1}{\lecture}%
+}{}%
+}
+\DTLsavelastrowcount{\totalpres}
+
+
+\begin{cvhonors}
+\cvhonor{On-Campus Invited Speaker Presentations}{}{2013 -- Present}{\campuspres{}}
+\cvhonor{Special Conference Presentations}{}{2019 -- Present}{\conferencepres{}}
+\cvhonor{Guest Lectures}{}{2021 -- Present}{\lecture{}}
+\cvhonor{Total Presentations}{}{2013 -- Present}{\totalpres{}}
+\end{cvhonors}
+
+\newcommand*{\uniquetalks}{}
+
+\DTLforeach[\equal{\acadstatus}{Campus}]{presentations}{%
+\prestitle=ProjectName,%
+\date=Date,%
+\role=Role,%
+\location=Location,%
+\address=address,%
+\acadstatus=Status,%
+\link=link,%
+\note=note}%
+{%
+  \expandafter\DTLifinlist\expandafter{\prestitle}{\uniquetalks}%
+  {}% do nothing, already in list
+  {% add to list
+    \ifdefempty{\uniquetalks}%
+    {\let\uniquetalks\prestitle}% first element of list
+    {% append to list
+      \eappto\uniquetalks{,\prestitle}%
+    }%
+  }%
+}
+
+\hspace{2cm}
+
+
+\cvsubsection{On-Campus Invited Speaker Presentations}
+
+
+\psforeach{\prestitle}{\uniquetalks}{% for each unique talk title
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+    \nohyphens{\entrytitlestyle{``\prestitle''}}%
+    \end{tabular*}%
+    \newline
+    \DTLforeach[\equal{\projectname}{\prestitle}\AND\equal{\acadstatus}{Campus}]{presentations}{% for each presentation, if it matches the title AND it is a campus talk
+    \projectname=ProjectName,%
+    \date=Date,%
+    \role=Role,%
+    \location=Location,%
+    \address=address,%
+    \acadstatus=Status,%
+    \link=link,%
+    \note=note}%
+    {%
+     \noindent\presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
+        {\date} % green
+        {\href{\link}{\location}} % head
+        {\address}% % flushright grey
+        {\role}%
+    }
+}
+
+
+
+\vspace{2cm}
+
+
+\cvsubsection{Special Conference Presentations}
+
+
+\DTLforeach[\equal{\acadstatus}{Conference}]{presentations}{%
+\projectname=ProjectName,%
+\date=Date,%
+\role=Role,%
+\location=Location,%
+\address=address,%
+\acadstatus=Status,%
+\link=link,%
+\note=note}%
+{%
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+     \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
+    \end{tabular*}
+    \newline
+     \presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
+        {\date} % green
+        {\location} % head
+        {\address}% % flushright grey
+        {}%
+        \DTLifnullorempty
+        {\note}
+        {}
+        {
+        \begin{cvtalknotes}
+            {\item {\bf \note}}
+        \end{cvtalknotes}
+        }
+}
+
+
+
+
+
+\hspace{2cm}
+
+\cvsubsection{Guest Lectures}
+
+
+
+
+\DTLforeach[\equal{\acadstatus}{Guest Lecture}]{presentations}{%
+\projectname=ProjectName,%
+\date=Date,%
+\role=Role,%
+\location=Location,%
+\address=address,%
+\acadstatus=Status,%
+\link=link,%
+\note=note}%
+{%
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+     \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
+    \end{tabular*}
+    \newline
+    \presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
+        {\date} % green
+        {\location} % head
+        {\address}% % flushright grey
+        {}%
+}
+
+

@@ -1,0 +1,231 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+% 
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+% Adaptation by
+% Lara J. Martin (laramar@seas.upenn.edu)
+%
+% Template from 
+% https://github.com/Denubis/Academic-LaTeX-CV-BibTeX-CSV
+% Brian Ballsun-Stanton (brian.ballsun-stanton@mq.edu.au)
+%
+% Originally taken from
+% https://github.com/posquit0/Awesome-CV
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+
+\usepackage{datatool}
+\usepackage{xparse}
+\usepackage{eso-pic,graphicx}
+\usepackage{pstricks}
+\usepackage{hyphenat}
+
+    
+% https://tex.stackexchange.com/a/376174
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+%\colorlet{awesome}{awesome-red}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{false}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\newcommand{\myname}{\textbf{L. J. Martin}}
+\newcommand{\mynamedagger}{\textbf{L. J. Martin$^\dagger$}}
+
+% Following entry pattern: https://zety.com/blog/academic-cv-example
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo{./examples/profile.png}
+
+\addbibresource{bibliography.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Sort Bibliography
+% https://tex.stackexchange.com/questions/484108/biblatex-sort-by-year-and-name-both-descending
+\DeclareSortingTemplate{ydndt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field{sortmonth}
+    \field{month}
+    \literal{12}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+}
+%%%%%%%%%%%%%%%%%%%%%%
+% Sort citation numbers
+% https://tex.stackexchange.com/questions/273313/biblatex-sort-cites-via-number-split-bibliography
+% https://tex.stackexchange.com/questions/310684/how-to-get-sorted-and-compressed-citations-when-using-split-bibliography-lists-a
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+     \step[fieldsource=keywords, match=thesis, final]
+     \step[fieldset=presort, fieldvalue = {A}]
+    }
+    \map{
+      \step[fieldsource=keywords, match=conference, final]
+      \step[fieldset=presort, fieldvalue = {B}]
+    }
+    \map{
+      \step[fieldsource=keywords, match=workshop, final]
+      \step[fieldset=presort, fieldvalue = {C}]
+    }
+    \map{
+      \step[fieldsource=keywords, match=other, final]
+      \step[fieldset=presort, fieldvalue = {D}]
+    }
+    \map{
+      \step[fieldsource=keywords, match=preprint, final]
+      \step[fieldset=presort, fieldvalue = {E}]
+    }
+    \map{
+      \step[fieldsource=keywords, match=submitted, final]
+      \step[fieldset=presort, fieldvalue = {F}]
+    }
+  }
+}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo{./examples/profile.png}
+\name{Dr.}{Lara J.}{Martin}
+\position{CIFellow Postdoctoral Researcher \bullet~University of Pennsylvania}
+\address{200 South 33rd Street, Philadelphia PA, 19104}
+
+%\mobile{(+1) 609-975-9799}
+\homepage{laramartin.net}
+\email{laramar@seas.upenn.edu}
+%\github{lara-martin}
+\linkedin{lara-j-martin}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+\twitter{@LangTechLara}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+\googlescholar{YjiWURYAAAAJ}{Google Scholar Page}
+%% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra informations}
+
+%\quote{``The purpose of a system is what it does." - Stafford Beer} But quotes at the start of CVs seems... tacky. 
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\AddToShipoutPictureBG*{%
+  \AtPageUpperLeft{%
+    \raisebox{-\height}{%
+      \includegraphics[width=\paperwidth,height=0.175\paperwidth]{sidebar.png}%
+    }%
+  }
+}
+
+% Print the header with above personal information
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[C]
+
+
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {Last updated: \today}
+  {Dr. Lara J. Martin~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+\vspace{1cm}
+\input{cv/researchObjective.tex}
+\vspace{0.5cm}
+\input{cv/education.tex}
+\vspace{0.5cm}
+\input{cv/experience.tex}
+\vspace{.5cm}
+\input{cv/teaching.tex}
+\vspace{.5cm}
+\input{cv/projects.tex}
+\vspace{.5cm}
+\input{cv/publications.tex}
+\vspace{.5cm}
+%grants
+\input{cv/service.tex}
+\vspace{.5cm}
+\input{cv/presentations.tex}
+\input{cv/conferences.tex}
+\vspace{.5cm}
+\input{cv/mentorship.tex}
+\vspace{.5cm}
+\input{cv/media.tex}
+
+% \input{cv/service.tex}
+%\input{cv/skills.tex}
+% \input{cv/experience.tex}
+% \input{cv/extracurricular.tex}
+% \input{cv/honors.tex}
+% \input{cv/presentation.tex}
+% \input{cv/writing.tex}
+
+
+
+
+\vfill
+{\tiny
+CV produced using \LaTeX. Modified version of code: \href{https://github.com/Denubis/Academic-LaTeX-CV-BibTeX-CSV}{\tt github.com/Denubis/Academic-LaTeX-CV-BibTeX-CSV}.}
+
+%-------------------------------------------------------------------------------
+\end{document}

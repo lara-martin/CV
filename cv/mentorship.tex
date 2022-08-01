@@ -1,0 +1,61 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+{\color{black}\fontsize{12pt}{1em}\faIcon{hands-helping}} \cvsection{Mentorship}
+
+\DTLloaddb[]{mentorship}{cv/mentoring.csv}
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+
+\cvsubsection{Outreach}
+
+\begin{cventries}
+ \cventry
+    {Out in Tech U’s Mentorship Program} % subhead
+    {Mark McGovern}% head
+    {Summer 2022}% green
+    {}% flushright grey
+    {}%
+\end{cventries}
+\hspace{2cm}
+
+\cvsubsection{University of Pennsylvania}
+
+\begin{cventries}
+\DTLforeach[\equal{\location}{University of Pennsylvania}]{mentorship}{%
+\person=person,%
+\date=Date,%
+\location=location,%
+\then=Then,%
+\now=Now}%
+{%
+ \cventry
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person}% head
+    {\date}% green
+    {}% flushright grey
+    {}%
+}%
+\end{cventries}
+
+\hspace{2cm}
+
+\cvsubsection{Georgia Institute of Technology}
+
+\begin{cventries}
+\DTLforeach[\equal{\location}{Georgia Institute of Technology}]{mentorship}{%
+\person=person,%
+\date=Date,%
+\location=location,%
+\then=Then,%
+\now=Now}%
+{%
+ \cventry
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person}% head
+    {\date}% green
+    {}% flushright grey
+    {}%
+}%
+\end{cventries}
