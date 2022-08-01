@@ -4,6 +4,12 @@
 
 Author: Lara J. Martin (laramar@seas.upenn.edu)
 
+
+<div align="center">
+<a href="https://github.com/lara-martin/CV/blob/9a2541a21b838edfef5f00c218463b0cc9954e38/LaraMartinCV.pdf" aria-label="link to example pdf"><img src="https://github.com/lara-martin/CV/blob/9a2541a21b838edfef5f00c218463b0cc9954e38/example.png" height="700px" aria-label="Pretty Academic CV example"></a>
+</div>
+
+<br><br>
 Adaptation of the <a href="https://github.com/Denubis/Academic-LaTeX-CV-BibTeX-CSV">Academic CV</a> by Brian Ballsun-Stanton (brian.ballsun-stanton@mq.edu.au), which was originally an adaptation of Awesome CV by Claud D. Park (posquit0.bj@gmail.com / http://www.posquit0.com) -- see below.
 
 
