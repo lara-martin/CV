@@ -128,8 +128,32 @@ citestyle=numeric-comp,
 ]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
 
-% https://tex.stackexchange.com/a/51439
 
+% For adding acceptance rate after bib entry
+% https://tex.stackexchange.com/questions/163303/add-field-tome-to-biblatex-entries
+% https://tex.stackexchange.com/questions/65374/add-new-field-to-biblatex-entries
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=acceptance,fieldtarget=addendum]
+    }
+  }
+}
+\DeclareFieldFormat{addendum}{\small\space\bibopenbracket{#1}\space\printtext{acceptance rate}\bibclosebracket}
+%\DeclareFieldFormat{booktitle}{\printtext{In}\space{\em #1}}
+\renewbibmacro*{url}{%
+  \printfield{url}%
+  \ifnameundef{addendum}
+    {}
+    {\setunit*{\space}%
+     \printfield{addendum}%
+    }
+  \newunit}
+
+
+
+
+% https://tex.stackexchange.com/a/51439
 \renewcommand*{\bibfont}{\fontsize{11pt}{1em}\bodyfontlight\upshape}
 \renewcommand\UrlFont{\fontsize{11pt}{1em}\bodyfontlight\upshape}
 
