@@ -6,7 +6,7 @@ Author: Lara J. Martin (laramar@seas.upenn.edu)
 
 
 <div align="center">
-<a href="https://github.com/lara-martin/CV/blob/9a2541a21b838edfef5f00c218463b0cc9954e38/LaraMartinCV.pdf" aria-label="link to example pdf"><img src="https://github.com/lara-martin/CV/blob/a5af2f238dfc02a29280725deea314cbe6613442/example.png" height="700px" aria-label="Pretty Academic CV example"></a>
+<a href="https://github.com/lara-martin/CV/blob/d98790e529fbbe909793247e7126dccfc4b0409f/LaraMartinCV.pdf" aria-label="link to example pdf"><img src="https://github.com/lara-martin/CV/blob/a5af2f238dfc02a29280725deea314cbe6613442/example.png" height="700px" aria-label="Pretty Academic CV example"></a>
 </div>
 
 <br><br>
