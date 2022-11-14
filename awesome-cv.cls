@@ -122,7 +122,7 @@ backend=biber,
 sorting=ydndt,
 maxnames=30,
 firstinits=true,
-defernumbers=true,
+%defernumbers=true,
 sortcites=true,
 citestyle=numeric-comp,
 ]{biblatex}
@@ -308,8 +308,8 @@ citestyle=numeric-comp,
 \newcommand*{\subdescriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of honor
-\newcommand*{\honortitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{graytext} #1}} %author
-\newcommand*{\honorpositionstyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}} %article
+\newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}} %author
+\newcommand*{\honorpositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}} %article
 \newcommand*{\honordatestyle}[1]{{\em\fontsize{9pt}{1em}\bodyfont\color{lighttext} #1}} %location
 \newcommand*{\honorlocationstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{teal} #1}} %date
 
@@ -680,7 +680,7 @@ citestyle=numeric-comp,
 \newcommand{\cvsubsection}[1]{%
   \vspace{\acvSectionContentTopSkip}
   \vspace{-3mm}
-  \subsectionstyle{#1}
+  \subsectionstyle{\underline{#1}}
   \phantomsection
 }
 
