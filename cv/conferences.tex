@@ -92,8 +92,9 @@
 \end{cventries}
 
 \vspace{10pt}
-\cvsubsection{Program Committee Member}
 
+
+\cvsubsection{Program Committee Member}
 
 \begin{cventries}
 \DTLforeach[\equal{\role}{Program Committee Member}]{organizing}{%
@@ -116,8 +117,6 @@
 
 
 \cvsubsection{Journal Reviewer}
-
-
 \begin{cventries}
 \DTLforeach[\equal{\role}{Journal Reviewer}]{organizing}{%
 \projectname=ConferenceName,%
@@ -134,12 +133,9 @@
     \end{cvreviews}
 }
 \end{cventries}
-\vspace{10pt}
+\vspace{25pt}
 
 \cvsubsection{ACL Rolling Review}
-
-
-
 \begin{cventries}
 \DTLforeach[\equal{\role}{ACL Rolling Review}]{organizing}{%
 \projectname=ConferenceName,%
@@ -151,17 +147,15 @@
 {%
     \begin{cvreviews}
       \cvreview
-        {Reviewer}% Award
+        {\generalRole}% role
         {\date}% Date(s)
     \end{cvreviews}
 }
 \end{cventries}
-
 \vspace{10pt}
+
+
 \cvsubsection{Community-Based Conference Attendance}
-
-
-
 \begin{cventries}
 \DTLforeach[\equal{\generalRole}{Attendee}]{organizing}{%
 \projectname=ConferenceName,%

@@ -22,18 +22,18 @@
 \hspace{2cm}
 
 \cvsubsection{University of Pennsylvania}
-
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Pennsylvania}]{mentorship}{%
 \person=person,%
 \date=Date,%
 \location=location,%
 \then=Then,%
-\now=Now}%
+\now=Now,
+\thesis=thesis}%
 {%
  \cventry
     {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
-    {\person}% head
+    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
     {\date}% green
     {}% flushright grey
     {}%
