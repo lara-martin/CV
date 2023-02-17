@@ -407,6 +407,10 @@ citestyle=numeric-comp,
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
 
+% Defines writer's Mastodon (optional)
+% Usage: \mastodon{<mastodon link>}
+\newcommand*{\mastodon}[1]{\def\@mastodon{#1}}
+
 % Defines writer's skype (optional)
 % Usage: \skype{<skype account>}
 \newcommand*{\skype}[1]{\def\@skype{#1}}
@@ -573,11 +577,17 @@ citestyle=numeric-comp,
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \MYhref[top-links]{https://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
         }%
+      \ifthenelse{\isundefined{\@googlescholarid}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \MYhref[top-links]{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
+        }%
       \ifthenelse{\isundefined{\@github}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+          \MYhref[top-links]{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
         {}%
@@ -603,11 +613,17 @@ citestyle=numeric-comp,
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \MYhref[top-links]{https://www.linkedin.com/in/\@linkedin}{\faIcon{linkedin}\acvHeaderIconSep\@linkedin}%
         }%
+    \ifthenelse{\isundefined{\@mastodon}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \MYhref[top-links]{\@mastodon}{\faMastodon\acvHeaderIconSep Mastodon}%
+        }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \MYhref[top-links]{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
+          \MYhref[top-links]{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep Twitter}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
@@ -632,12 +648,6 @@ citestyle=numeric-comp,
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://medium.com/@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
-        }%
-      \ifthenelse{\isundefined{\@googlescholarid}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \MYhref[top-links]{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%

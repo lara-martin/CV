@@ -1,58 +1,100 @@
-{\color{black}\fontsize{12pt}{1em}\faIcon{file-invoice-dollar}} \cvsection{Grants and Prizes}
-
-\cvsubsection{Summary}
+{\color{black}\fontsize{12pt}{1em}\faIcon{file-invoice-dollar}} \cvsection{Grants and Awards}
 
 \DTLloaddb[]{grants}{cv/grants.csv}
-\def\granttotal{0}
-\def\grantnum{0}
-\DTLforeach{grants}{%
-\income=Income}{%
-\DTLgadd{\granttotal}{\income}{\granttotal}%
-\DTLgadd{\grantnum}{1}{\grantnum}%
-}
 
-\begin{cvhonors}
-\cvhonor{total external competitive grant income}{}{2012 -- Present}{\$\granttotal{}}
-\cvhonor{grants awarded}{}{2012 -- Present}{\grantnum{}}
-\end{cvhonors}
+% \cvsubsection{Grant Summary}
+
+% \def\granttotal{0}
+% \def\grantnum{0}
+% \DTLforeach{grants}{%
+% \amount=Amount}{%
+% \DTLgadd{\granttotal}{\amount}{\granttotal}%
+% \DTLgadd{\grantnum}{1}{\grantnum}%
+% }
+
+% \begin{cvhonors}
+% \cvhonor{total external competitive grant amount awarded}{}{2021 -- Present}{\$\granttotal{}}
+% \cvhonor{grants awarded}{}{2021 -- Present}{\grantnum{}}
+% \end{cvhonors}
 
 \cvsubsection{Grants}
 
 \begin{cventries}
 
 \DTLforeach{grants}{%
-%Grant	Code	Title	Income	Start Year	End Year	Role	Location	Description	Primary CI	Authors
-\grant=Grant,%
+%Grant	Code	Title	Amount	Start Year	End Year	Role	Location	Description	Primary CI	Authors
+\grant=Organization,%
 \code=Code,%
 \granttitle=Title,%
-\income=Income,%
+\amount=Amount,%
 \startyear=StartYear,%
 \stopyear=EndYear,%
 \role=Role,%
 \location=Location,%
 \desc=Description,%
-\pci=PrimaryCI,%
+\pci=PI,%
 \authors=Authors%
 }{%
 \cvgrant
     {\DTLifnullorempty{\code}{}{(\code)~}\granttitle{}}%
     {\grant}%
     {\startyear{} -- \stopyear{}}%
-    {AUD \DTLdecimaltocurrency{\income}{\grantincome}\grantincome}%
+    {\$\DTLgadd{\amount}{0}{\amount}\amount}%
     {\authors}%
     {\location}%
-    {\desc{} Lead: \pci{}.}}% (\role{}) 
+    {}}%
 \end{cventries}
 
-\cvsubsection{Prizes}
+
+
+
+% \cvgrant
+%     {\DTLifnullorempty{\code}{}{(\code)~}\granttitle{}}%
+%     {\grant}%
+%     {\startyear{} -- \stopyear{}}%
+%     {AUD \DTLdecimaltocurrency{\income}{\grantincome}\grantincome}%
+%     {\authors}%
+%     {\location}%
+%     {\desc{} Lead: \pci{}.}}% (\role{}) 
+
+\cvsubsection{Awards}
 
 \begin{cventries}
 \cvgrant
-{DataApp: A Mobile App Framework for Field Data Capture - Stage 1}
-{Challenge.gov prize: US Bureau of Reclamation, US Geological Survey}
-{2018}
-{USD \$5,625}
-{Ballsun-Stanton B., S. Ross and S. Cassidy}
-{Macquarie University}
-{Prize in a challenge.gov / innocentive.com competition sponsored by the US Bureau of Reclamation and the US Geological Survey. Selected as one of seven winners from 167 entries (4\% success rate). (\href{https://gw.innocentive.com/ar/challenge/9933881}{https://gw.innocentive.com/ar/challenge/9933881.})}
+{\href{https://gvu.gatech.edu/gvu-graduate-student-awards-program-2019}{Foley Scholar Award}}% title
+{James D. Foley GVU Center Endowment}% grant agency
+{2019}
+{\$5,000}
+{Lara J. Martin}
+{Georgia Institute of Technology}
+{Every year, three PhD students across Georgia Tech's College of Computing are selected from a group of around 8 finalists to receive the prestigious Foley Scholarship in recognition for their efforts in innovative research.}
+
+
+% \cvgrant
+% {Best Doctoral Consortium Presentation}% title
+% {ACM Richard Tapia Celebration of Diversity in Computing}% grant agency
+% {2019}
+% {-}
+% {Lara J. Martin}
+% {}
+% {}
+
+\cvgrant
+{Travel Scholarship for the ACM Richard Tapia Celebration of Diversity in Computing}% title
+{Association for Computing Machinery}% grant agency
+{2019}
+{\$500}
+{Lara J. Martin}
+{San Diego, CA}
+{}
+
+\cvgrant
+{Travel Scholarship for the 2013 Grace Hopper Celebration of Women in Computing}% title
+{Lockheed Martin Corporation}% grant agency
+{2013}
+{\$450}
+{Lara J. Martin}
+{Minneapolis, MN}
+{}
+
 \end{cventries}
