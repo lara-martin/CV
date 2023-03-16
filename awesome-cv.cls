@@ -807,12 +807,12 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 3.5cm} R{3.5cm}}
     \setlength\tabcolsep{0pt}
     \ifempty{#4}{\hspace{-0.5mm}}{%
-    \hspace{-1.5mm}\entrypositionstyle{#4} -- }%
+    \hspace{-1mm}\entrypositionstyle{#4} -- }%-1.5mm
     \subentrytitlestyle{#2} \dotfill & \ifthenelse{\equal{#1}{}}
       {\entrydatestyle{#3}}{}
     \ifempty{#1}%
       {}%
-      {\honorlocationstyle{#1}\\  & \entrydatestyle{#3} \\}
+      {\honorlocationstyle{#1}\\ & \entrydatestyle{#3}\\}%
   \end{tabular*}
 }
 

@@ -28,14 +28,53 @@
 \DTLsavelastrowcount{\totalpres}
 
 
+
 \begin{cvhonors}
+
 \cvhonor{On-Campus Invited Speaker Presentations}{}{2013 -- Present}{\campuspres{}}
 \cvhonor{Special Conference Presentations}{}{2019 -- Present}{\conferencepres{}}
 \cvhonor{Guest Lectures}{}{2021 -- Present}{\lecture{}}
 \cvhonor{Total Presentations}{}{2013 -- Present}{\totalpres{}}
 \end{cvhonors}
 
+\vspace{0.7cm}
+
+
 \newcommand*{\uniquetalks}{}
+
+\cvsubsection{Special Conference Presentations}
+
+\DTLforeach[\equal{\acadstatus}{Conference}]{presentations}{%
+\projectname=ProjectName,%
+\date=Date,%
+\role=Role,%
+\location=Location,%
+\address=address,%
+\acadstatus=Status,%
+\link=link,%
+\note=note}%
+{%
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+     \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
+    \end{tabular*}
+    \newline
+     \presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
+        {\date} % green
+        {\location} % head
+        {\address}% % flushright grey
+        {}%
+        \DTLifnullorempty
+        {\note}
+        {}
+        {
+        \begin{cvtalknotes}
+            {\item {\bf \note}}
+        \end{cvtalknotes}
+        \vspace{5mm}
+        }
+}
+
+
 
 \DTLforeach[\equal{\acadstatus}{Campus}]{presentations}{%
 \prestitle=ProjectName,%
@@ -58,7 +97,7 @@
   }%
 }
 
-\hspace{2cm}
+\vspace{0.6cm}
 
 
 \cvsubsection{On-Campus Invited Speaker Presentations}
@@ -89,50 +128,9 @@
 
 
 
-
-
-
-\cvsubsection{Special Conference Presentations}
-
-
-\DTLforeach[\equal{\acadstatus}{Conference}]{presentations}{%
-\projectname=ProjectName,%
-\date=Date,%
-\role=Role,%
-\location=Location,%
-\address=address,%
-\acadstatus=Status,%
-\link=link,%
-\note=note}%
-{%
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
-     \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
-    \end{tabular*}
-    \newline
-     \presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
-        {\date} % green
-        {\location} % head
-        {\address}% % flushright grey
-        {}%
-        \DTLifnullorempty
-        {\note}
-        {}
-        {
-        \begin{cvtalknotes}
-            {\item {\bf \note}}
-        \end{cvtalknotes}
-        }
-}
-
-
-
-
-
-\hspace{2cm}
+\vspace{-.1cm}
 
 \cvsubsection{Guest Lectures}
-
-
 
 
 \DTLforeach[\equal{\acadstatus}{Guest Lecture}]{presentations}{%
