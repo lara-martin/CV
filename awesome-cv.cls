@@ -575,7 +575,7 @@ citestyle=numeric-comp,
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \MYhref[top-links]{https://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
+          \MYhref[top-links]{https://\@homepage}{\faHome\acvHeaderIconSep\@homepage}\setbool{isstart}{true}\\%
         }%
       \ifthenelse{\isundefined{\@googlescholarid}}%
         {}%
@@ -587,7 +587,7 @@ citestyle=numeric-comp,
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \MYhref[top-links]{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+          \MYhref[top-links]{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep Github}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
         {}%
@@ -611,7 +611,7 @@ citestyle=numeric-comp,
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \MYhref[top-links]{https://www.linkedin.com/in/\@linkedin}{\faIcon{linkedin}\acvHeaderIconSep\@linkedin}%
+          \MYhref[top-links]{https://www.linkedin.com/in/\@linkedin}{\faIcon{linkedin}\acvHeaderIconSep LinkedIn}%
         }%
     \ifthenelse{\isundefined{\@mastodon}}%
         {}%
@@ -749,7 +749,8 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   %\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+  %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \fluf\entrydatestyle{#4} \\}
       {\entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrydatestyle{#4}}
