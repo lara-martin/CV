@@ -119,7 +119,7 @@
 \RequirePackage[
 backend=biber,
 %style=ieee,
-sorting=ydndt,
+sorting=ymn,
 maxnames=30,
 firstinits=true,
 %defernumbers=true,
@@ -127,6 +127,30 @@ sortcites=true,
 citestyle=numeric-comp,
 ]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
+
+% new sorting template 
+% https://tex.stackexchange.com/questions/46868/biblatex-sorting-by-date
+\DeclareSortingTemplate{ymn}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{00}
+  }
+  \sort{
+    \field{author}
+  }
+}
+
+
 
 
 % For adding acceptance rate after bib entry

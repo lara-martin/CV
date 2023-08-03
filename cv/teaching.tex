@@ -7,12 +7,13 @@
 
 \begin{cventries}
 \DTLforeach{teaching}{%
-%ProjectName    Date    Role    Location    Description1    Description2    
+%ProjectName    Date    Role    Location    Description1 Link  
 \projectname=ProjectName,%
 \date=Date,%
 \role=Role,%
 \location=Location,%
-\descone=Description1%
+\descone=Description1,%
+\link=Link%
 }%
 {%
     \DTLifnullorempty{\descone}
@@ -26,7 +27,7 @@
     {%
     \cventry
     {\role} % subhead
-    {\projectname} % head
+    {\href{\link}{\projectname}} % head
     {\date} % green
     {\location} % flushright grey
     {%
