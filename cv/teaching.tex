@@ -16,7 +16,7 @@
 \link=Link%
 }%
 {%
-    \DTLifnullorempty{\descone}
+    \DTLifnullorempty{\link}
     {
     \cventryNoNote
     {\role} % subhead
@@ -31,9 +31,11 @@
     {\date} % green
     {\location} % flushright grey
     {%
+    \DTLifnullorempty{\descone}{}
+    {
     \begin{cvitems}
     \item \descone%
-    \end{cvitems}
+    \end{cvitems}}
     }%
     }%
 }
