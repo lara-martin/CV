@@ -31,10 +31,15 @@
 
 \begin{cvhonors}
 
-\cvhonor{On-Campus Invited Speaker Presentations}{}{2013 -- Present}{\campuspres{}}
-\cvhonor{Special Conference Presentations}{}{2019 -- Present}{\conferencepres{}}
-\cvhonor{Guest Lectures}{}{2021 -- Present}{\lecture{}}
-\cvhonor{Total Presentations}{}{2013 -- Present}{\totalpres{}}
+\cvhonor{On-Campus Invited Speaker Presentations}{}{}{\campuspres{}}
+\cvhonor{Special Conference Presentations}{}{}{\conferencepres{}}
+\cvhonor{Guest Lectures}{}{}{\lecture{}}
+\cvhonor{Total Presentations}{}{}{\totalpres{}}
+
+% \cvhonor{On-Campus Invited Speaker Presentations}{}{2013 -- Present}{\campuspres{}}
+% \cvhonor{Special Conference Presentations}{}{2019 -- Present}{\conferencepres{}}
+% \cvhonor{Guest Lectures}{}{2021 -- Present}{\lecture{}}
+% \cvhonor{Total Presentations}{}{2013 -- Present}{\totalpres{}}
 \end{cvhonors}
 
 \vspace{0.7cm}
@@ -132,7 +137,6 @@
 
 \cvsubsection{Guest Lectures}
 
-
 \DTLforeach[\equal{\acadstatus}{Guest Lecture}]{presentations}{%
 \projectname=ProjectName,%
 \date=Date,%
@@ -143,15 +147,37 @@
 \link=link,%
 \note=note}%
 {%
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
-     \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
-    \end{tabular*}
-    \newline
+    % \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+    %  \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
+    % \end{tabular*}
+    % \newline
+    
     \presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
         {\date} % green
         {\location} % head
         {\address}% % flushright grey
         {}%
 }
+
+% \DTLforeach[\equal{\acadstatus}{Guest Lecture}]{presentations}{%
+% \projectname=ProjectName,%
+% \date=Date,%
+% \role=Role,%
+% \location=Location,%
+% \address=address,%
+% \acadstatus=Status,%
+% \link=link,%
+% \note=note}%
+% {%
+%     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+%      \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
+%     \end{tabular*}
+%     \newline
+%     \presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
+%         {\date} % green
+%         {\location} % head
+%         {\address}% % flushright grey
+%         {}%
+% }
 
 
