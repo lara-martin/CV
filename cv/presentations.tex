@@ -10,6 +10,7 @@
 \def\campuspres{0}
 \def\conferencepres{0}
 \def\lecture{0}
+\def\panel{0}
 \def\totalpres{0}
 
 
@@ -24,16 +25,19 @@
 \DTLifeq{\status}{Guest Lecture}{%
 \DTLgadd{\lecture}{1}{\lecture}%
 }{}%
+\DTLifeq{\status}{Panel}{%
+\DTLgadd{\panel}{1}{\panel}%
+}{}%
 }
 \DTLsavelastrowcount{\totalpres}
 
 
 
 \begin{cvhonors}
-
-\cvhonor{On-Campus Invited Speaker Presentations}{}{}{\campuspres{}}
 \cvhonor{Special Conference Presentations}{}{}{\conferencepres{}}
-\cvhonor{Guest Lectures}{}{}{\lecture{}}
+\cvhonor{On-Campus Invited Speaker Presentations}{}{}{\campuspres{}}
+% \cvhonor{Guest Lectures}{}{}{\lecture{}}
+\cvhonor{Panels}{}{}{\panel{}}
 \cvhonor{Total Presentations}{}{}{\totalpres{}}
 
 % \cvhonor{On-Campus Invited Speaker Presentations}{}{2013 -- Present}{\campuspres{}}
@@ -127,10 +131,33 @@
         {\date} % green
         {\href{\link}{\location}} % head
         {\address}% % flushright grey
-        {\role}%
+        {}%\role}%
     }
 }
 
+
+\cvsubsection{Panelist}
+
+\begin{cventries}
+\DTLforeach[\equal{\acadstatus}{Panel}]{presentations}{%
+    \projectname=ProjectName,%
+    \date=Date,%
+    \role=Role,%
+    \location=Location,%
+    \address=address,%
+    \acadstatus=Status,%
+    \link=link,%
+    \note=note}%
+{%
+ \cventry
+    {\location} % subhead
+    {\projectname} % head
+    {\date} % green
+    {\address} % flushright grey
+    {%
+    }
+}
+\end{cventries}
 
 
 % \vspace{-.1cm}

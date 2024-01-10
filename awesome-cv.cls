@@ -325,7 +325,7 @@ citestyle=numeric-comp,
 \newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of subentry
-\newcommand*{\subentrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
+\newcommand*{\subentrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\mdseries\color{darktext} #1}}
 \newcommand*{\subentrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\subentrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\subentrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{teal} #1}}
@@ -783,6 +783,19 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
   \par\addvspace{-4pt}%0
 }
 
+\newcommand*{\cventrysmallfont}[5]{%
+  \vspace{-1.0mm} %-2mm
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\subentrypositionstyle{#1} & \fluf\subentrydatestyle{#4} \\}
+      {\subentrytitlestyle{#2}\newline{}\subentrypositionstyle{#1} & \subentrylocationstyle{#3}\newline{}\subentrydatestyle{#4}}
+    \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+  \end{tabular*}%
+  \par\addvspace{-4pt}%0
+}
+
 
 \newcommand*{\cvgrant}[7]{%
   \vspace{-2.0mm}
@@ -840,6 +853,7 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
       {\honorlocationstyle{#1}\\ & \entrydatestyle{#3}\\}%
   \end{tabular*}
 }
+
 
 
 \newcommand*{\cventryNoNote}[4]{%
@@ -921,6 +935,10 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
 
 \newcommand*{\cvreview}[2]{%
     \entrylocationstyle{#2} & \honorpositionstyle{#1} %honordatestyle
+}
+
+\newcommand*{\cvreviewinfo}[3]{%
+    \entrylocationstyle{#2} & \honorpositionstyle{#1}  \entrydatestyle{#3}%
 }
 
 

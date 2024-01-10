@@ -45,7 +45,7 @@
 % \cvhonor{Total Participation}{}{2013 -- Present}{\totalconf{}}
 
 \cvhonor{Organizer}{}{}{\organizer{}}
-\cvhonor{Chair Positions}{}{}{\chair{}}
+\cvhonor{Chair Positions, including ACL Action Editor}{}{}{\chair{}}
 \cvhonor{Program Committee Member/Reviewer}{}{}{\reviewer{}}
 \cvhonor{Community-Based Conference Attendee}{}{}{\attendee{}}
 \cvhonor{Total Participation}{}{}{\totalconf{}}
@@ -68,7 +68,7 @@
 \link=link}%
 {%
  \cventry
-    {} % subhead
+    {\role} % subhead
     {\href{\link}{\projectname}} % head
     {\date} % green
     {\location}% % flushright grey
@@ -78,7 +78,7 @@
 \end{cventries}
 
 
-\cvsubsection{Chair Positions}
+\cvsubsection{Other Chair Positions}
 
 
 \begin{cventries}
@@ -101,29 +101,6 @@
 \end{cventries}
 
 \vspace{10pt}
-
-
-\cvsubsection{Program Committee Member}
-
-\begin{cventries}
-\DTLforeach[\equal{\role}{Program Committee Member}]{organizing}{%
-\projectname=ConferenceName,%
-\date=Date,%
-\role=Role,%
-\generalRole=GeneralRole,%
-\location=Location,%
-\link=link,
-\type=type}%
-{%
- \cventry
-    {\type} % subhead
-    {\projectname} % head
-    {\date} % green
-    {\location} % flushright grey
-    {}%
-}
-\end{cventries}
-
 
 \cvsubsection{Journal Reviewer}
 \begin{cventries}
@@ -152,16 +129,42 @@
 \role=Role,%
 \generalRole=GeneralRole,%
 \location=Location,%
-\link=link}%
+\link=link,
+\type=type}%
 {%
     \begin{cvreviews}
-      \cvreview
+      \cvreviewinfo
         {\generalRole}% role
         {\date}% Date(s)
+        {\DTLifnullorempty{\type}{}{ -- \type}}%
     \end{cvreviews}
 }
 \end{cventries}
 \vspace{10pt}
+
+
+\cvsubsection{Program Committee Member}
+\begin{cventries}
+\DTLforeach[\equal{\role}{Program Committee Member}]{organizing}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link,
+\type=type}%
+{%
+ \cventrysmallfont
+    {\type} % subhead
+    {\projectname} % head
+    {\date} % green
+    {\location} % flushright grey
+    {}%
+}
+\end{cventries}
+
+
+
 
 
 \cvsubsection{Community-Based Conference Attendance}
