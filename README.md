@@ -2,7 +2,7 @@
  Pretty Academic CV Template
 </h1>
 
-Author: Lara J. Martin (laramar@seas.upenn.edu)
+Author: Lara J. Martin (laramar@umbc.edu)
 
 
 <div align="center">
