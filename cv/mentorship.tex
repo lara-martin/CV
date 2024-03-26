@@ -1,21 +1,58 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-{\color{black}\fontsize{12pt}{1em}\faIcon{lightbulb}} \cvsection{PhD Students}
+
+\DTLloaddb[]{thesis}{cv/thesis.csv}
+
+{\color{black}\fontsize{12pt}{1em}\faIcon{lightbulb}} \cvsection{PhD Advising}
 
 \cvsubsection{University of Maryland, Baltimore County}
 \begin{cventries}
-
+\DTLforeach[\equal{\location}{University of Maryland, Baltimore County} \AND \equal{\type}{PhD}]{thesis}{%
+\person=person,%
+\date=Date,%
+\location=location,%
+\then=Then,%
+\now=Now,
+\thesis=thesis,
+\type=type}%
+{%
  \cventry
-    {PhD Computer Science} % subhead
-    {Patty Delafuente}% head
-    {2024--Present}% green
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
+    {\date}% green
     {}% flushright grey
     {}%
-
+}%
 \end{cventries}
 
 
+
+\vspace{0.6cm}
+\newpage
+
+{\color{black}\fontsize{12pt}{1em}\faIcon{lightbulb}} \cvsection{Masters Thesis Advising}
+
+
+\cvsubsection{University of Pennsylvania}
+\begin{cventries}
+\DTLforeach[\equal{\location}{University of Pennsylvania} \AND \equal{\type}{Masters}]{thesis}{%
+\person=person,%
+\date=Date,%
+\location=location,%
+\then=Then,%
+\now=Now,
+\thesis=thesis,
+\type=type}%
+{%
+ \cventry
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
+    {\date}% green
+    {}% flushright grey
+    {}%
+}%
+\end{cventries}
 
 \vspace{0.6cm}
 
@@ -23,6 +60,8 @@
 {\color{black}\fontsize{12pt}{1em}\faIcon{hands-helping}} \cvsection{Other Mentorship}
 
 \DTLloaddb[]{mentorship}{cv/mentoring.csv}
+
+
 %-------------------------------------------------------------------------------
 %	CONTENT
 %-------------------------------------------------------------------------------
@@ -126,3 +165,19 @@
 
 
 %{\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committees}
+
+
+
+{\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committee Member}
+
+\cvsubsection{University of Maryland, Baltimore County}
+\begin{cventries}
+
+ \cventry
+    {MS Computer Science} % subhead
+    {Ekele Ogbadu}% head
+    {2024}% green
+    {}% flushright grey
+    {}%
+
+\end{cventries}

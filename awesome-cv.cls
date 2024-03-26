@@ -783,6 +783,23 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
   \par\addvspace{-4pt}%0
 }
 
+\newcommand*{\cventryteach}[5]{%
+  \vspace{-5.0mm} %-2mm
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  %\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \fluf\entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrydatestyle{#4}}
+    \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+  \end{tabular*}%
+  \par\addvspace{-4pt}%0
+}
+
+
+
 \newcommand*{\cventrysmallfont}[5]{%
   \vspace{-1.0mm} %-2mm
   \setlength\tabcolsep{0pt}
@@ -868,6 +885,8 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
   \end{tabular*}%
   \par\addvspace{0pt}
 }
+
+
 %%%%%%%%%%%%%%%%%%
 
 
