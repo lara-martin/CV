@@ -1,3 +1,4 @@
-Organization,Code,Title,Amount,StartYear,EndYear,Role,Location,Description,PI,Authors
-UMBC Summer Research Faculty Fellowship (SuRFF),,``Reinforcement Learning for Playing Dungeons \& Dragons'',8000,2024,,,UMBC,,,Lara J. Martin
-National Science Foundation \& Computing Research Association,,Computing Innovation Postdoctoral Fellowship,200000,2021,2023,Postdoctoral Researcher,University of Pennsylvania,,,"Lara J. Martin (Postdoc), Chris Callison-Burch (Faculty Mentor)"
+Organization,Code,Title,Amount,StartYear,EndYear,Role,Location,Description,Authors,Link
+UMBC COEIT Interdisciplinary Proposals,,``Investigating the Social and Affective Aspects of Large-Language Model-based Augmentative and Alternative Communication Systems'',20000,2024,2025,Co-PI,UMBC,,"Foad Hamidi (Co-PI), Lara J. Martin (Co-PI)",https://coeit.umbc.edu/cip-awards/
+UMBC Summer Research Faculty Fellowship (SuRFF),,``Reinforcement Learning for Playing Dungeons \& Dragons'',8000,2024,,,UMBC,,Lara J. Martin,
+National Science Foundation \& Computing Research Association,,Computing Innovation Postdoctoral Fellowship,200000,2021,2023,Postdoctoral Researcher,University of Pennsylvania,,"Lara J. Martin (Postdoc), Chris Callison-Burch (Faculty Mentor)",

@@ -591,8 +591,8 @@ citestyle=numeric-comp,
         }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+        {% 
+          \vspace{.1cm}\ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \MYhref[top-links]{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
@@ -883,7 +883,7 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
       {\entrypositionstyle{#1} & \fluf\entrydatestyle{#4} \\}
       {\entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrydatestyle{#4}}
   \end{tabular*}%
-  \par\addvspace{0pt}
+  \par\addvspace{10pt}
 }
 
 

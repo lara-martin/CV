@@ -32,11 +32,11 @@
 \role=Role,%
 \location=Location,%
 \desc=Description,%
-\pci=PI,%
-\authors=Authors%
+\authors=Authors,%
+\link=Link%
 }{%
 \cvgrant
-    {\DTLifnullorempty{\code}{}{(\code)~}\granttitle{}}%
+    {\DTLifnullorempty{\code}{}{(\code)~}\DTLifnullorempty{\link}{\granttitle}{\href{\link}{\granttitle}}}%
     {\grant}%
     {\startyear{}\DTLifnullorempty{\stopyear}{}{ -- \stopyear{}}}%
     {\$\DTLgadd{\amount}{0}{\amount}\amount}%
@@ -66,35 +66,28 @@
 {2019}
 {\$5,000}
 {Lara J. Martin}
-{Georgia Institute of Technology}
-{Every year, three PhD students across Georgia Tech's College of Computing are selected from a group of around 8 finalists to receive the prestigious Foley Scholarship in recognition for their efforts in innovative research.}
+{Georgia Institute of Technology}{}
+%{Every year, three PhD students across Georgia Tech's College of Computing are selected from a group of around 8 finalists to receive the prestigious Foley Scholarship in recognition for their efforts in innovative research.}
+
+
 
 
 % \cvgrant
-% {Best Doctoral Consortium Presentation}% title
-% {ACM Richard Tapia Celebration of Diversity in Computing}% grant agency
+% {Travel Scholarship for the ACM Richard Tapia Celebration of Diversity in Computing}% title
+% {Association for Computing Machinery}% grant agency
 % {2019}
-% {-}
+% {\$500}
 % {Lara J. Martin}
-% {}
+% {San Diego, CA}
 % {}
 
-\cvgrant
-{Travel Scholarship for the ACM Richard Tapia Celebration of Diversity in Computing}% title
-{Association for Computing Machinery}% grant agency
-{2019}
-{\$500}
-{Lara J. Martin}
-{San Diego, CA}
-{}
-
-\cvgrant
-{Travel Scholarship for the 2013 Grace Hopper Celebration of Women in Computing}% title
-{Lockheed Martin Corporation}% grant agency
-{2013}
-{\$450}
-{Lara J. Martin}
-{Minneapolis, MN}
-{}
+% \cvgrant
+% {Travel Scholarship for the 2013 Grace Hopper Celebration of Women in Computing}% title
+% {Lockheed Martin Corporation}% grant agency
+% {2013}
+% {\$450}
+% {Lara J. Martin}
+% {Minneapolis, MN}
+% {}
 
 \end{cventries}
