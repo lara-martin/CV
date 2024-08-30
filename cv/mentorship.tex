@@ -33,6 +33,25 @@
 
 {\color{black}\fontsize{12pt}{1em}\faIcon{lightbulb}} \cvsection{Masters Thesis Advising}
 
+\cvsubsection{University of Maryland, Baltimore County}
+\begin{cventries}
+\DTLforeach[\equal{\location}{University of Maryland, Baltimore County} \AND \equal{\type}{Masters}]{thesis}{%
+\person=person,%
+\date=Date,%
+\location=location,%
+\then=Then,%
+\now=Now,
+\thesis=thesis,
+\type=type}%
+{%
+ \cventry
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
+    {\date}% green
+    {}% flushright grey
+    {}%
+}%
+\end{cventries}
 
 \cvsubsection{University of Pennsylvania}
 \begin{cventries}
@@ -124,7 +143,7 @@
 
 \vspace{0.5cm}
 
-\newpage
+
 \cvsubsection{University of Pennsylvania}
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Pennsylvania}]{mentorship}{%
@@ -183,7 +202,7 @@
  \cventry
     {MS Computer Science} % subhead
     {Aidan Newell}% head
-    {July 2024}% green
+    {}% green
     {}% flushright grey
     {}% 
  \cventry
