@@ -329,7 +329,7 @@ citestyle=numeric-comp,
 \newcommand*{\subentrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\subentrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\subentrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{teal} #1}}
-\newcommand*{\subdescriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\subdescriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}} %author
@@ -778,22 +778,44 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \fluf\entrydatestyle{#4} \\}
       {\entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrydatestyle{#4}}
-    \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+    \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\subdescriptionstyle{#5}}}
   \end{tabular*}%
   \par\addvspace{-4pt}%0
 }
 
-\newcommand*{\cventryteach}[5]{%
-  \vspace{-5.0mm} %-2mm
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  %\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \fluf\entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrydatestyle{#4}}
-    \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+% \newcommand*{\cventryheader}[2]{%
+%   \vspace{-1.0mm} %-2mm
+%   \setlength\tabcolsep{0pt}
+%   \setlength{\extrarowheight}{0pt}
+%   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+%     \ifempty{#1}
+%       { & \fluf\entrylocationstyle{\textbf{#2}}\\}
+%       {\entrytitlestyle{\textbf{#1}} & \entrylocationstyle{\textbf{#2}}\\}
+%   \end{tabular*}%
+%   \par\addvspace{-4pt}%0
+% }
+
+
+
+% \newcommand*{\cventryteach}[5]{%
+%   \vspace{-5.0mm} %-2mm
+%   \setlength\tabcolsep{0pt}
+%   \setlength{\extrarowheight}{0pt}
+%   %\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+%   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+%     \ifempty{#2#3}
+%       {\entrypositionstyle{#1} & \fluf\entrydatestyle{#4} \\}
+%       {\entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrydatestyle{#4}}
+%     \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+%   \end{tabular*}%
+%   \par\addvspace{-4pt}%0
+% }
+
+\newcommand*{\cventryteach}[3]{%role, date, description
+  \vspace{2.0mm} %-2mm
+    \entrylocationstyle{#2} -- \entrypositionstyle{#1}%
+    \ifempty{#3}{}{\subdescriptionstyle{#3}}%
   \end{tabular*}%
   \par\addvspace{-4pt}%0
 }

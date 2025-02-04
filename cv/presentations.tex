@@ -2,7 +2,7 @@
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
 
-{\color{black}\fontsize{12pt}{1em}\faIcon{chart-bar}} \cvsection{Professional Activities - Presentations}
+{\color{black}\fontsize{12pt}{1em}\faIcon{chart-bar}} \cvsection{Invited Talks and Panels}
 
 \DTLloaddb[]{presentations}{cv/presentations.csv}
 \cvsubsection{Summary}
@@ -111,7 +111,6 @@
 
 \cvsubsection{Invited Speaker Presentations}
 
-
 \psforeach{\prestitle}{\uniquetalks}{% for each unique talk title
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
     \nohyphens{\entrytitlestyle{``\prestitle''}}%
@@ -137,7 +136,8 @@
 
 
 \cvsubsection{Panelist}
-\vspace{-.3em}
+
+%\vspace{-.2em}
 \begin{cventries}
 \DTLforeach[\equal{\acadstatus}{Panel}]{presentations}{%
     \projectname=ProjectName,%

@@ -1,20 +1,22 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\newpage
-{\color{black}\fontsize{12pt}{1em}\faIcon{comments}} \cvsection{Professional Activities -- Conference Organization}
+%\newpage
+{\color{black}\fontsize{12pt}{1em}\faIcon{comments}} \cvsection{Professional Activities}
 
-\DTLloaddb[]{organizing}{cv/organizing.csv}
+\DTLloaddb[]{professional}{cv/professional.csv}
 \cvsubsection{Summary}
 \def\organizer{0}
 \def\chair{0}
 \def\reviewer{0}
-\def\attendee{0}
+\def\grant{0}
+\def\journal{0}
 \def\totalconf{0}
 
 
-\DTLforeach{organizing}{%
-\status=GeneralRole}{%
+\DTLforeach{professional}{%
+\status=GeneralRole,
+\type=Role}{%
 \DTLifeq{\status}{Organizer}{%
 \DTLgadd{\organizer}{1}{\organizer}%
 }{}%
@@ -27,8 +29,11 @@
 \DTLifeq{\status}{Reviewer}{%
 \DTLgadd{\reviewer}{1}{\reviewer}%
 }{}%
-\DTLifeq{\status}{Attendee}{%
-\DTLgadd{\attendee}{1}{\attendee}%
+\DTLifeq{\status}{GrantReview}{%
+\DTLgadd{\grant}{1}{\grant}%
+}{}%
+\DTLifeq{\type}{Journal Reviewer}{%
+\DTLgadd{\journal}{1}{\journal}%
 }{}%
 }
 \DTLsavelastrowcount{\totalconf}
@@ -44,21 +49,23 @@
 % \cvhonor{Community-Based Conference Attendee}{}{2013 -- Present}{\attendee{}}
 % \cvhonor{Total Participation}{}{2013 -- Present}{\totalconf{}}
 
-\cvhonor{Organizer}{}{}{\organizer{}}
-\cvhonor{Chair Positions, including ACL Action Editor}{}{}{\chair{}}
+\cvhonor{Organizer/Guest Editor}{}{}{\organizer{}}
+\cvhonor{Area Chair Positions, including ACL Action Editor}{}{}{\chair{}}
+\cvhonor{Grant Reviewer}{}{}{\grant{}}
+\cvhonor{Journal Reviewer}{}{}{\journal{}}
 \cvhonor{Program Committee Member/Reviewer}{}{}{\reviewer{}}
-\cvhonor{Community-Based Conference Attendee}{}{}{\attendee{}}
 \cvhonor{Total Participation}{}{}{\totalconf{}}
 
 \end{cvhonors}
 
 \vspace{0.7cm}
 
-\cvsubsection{Organizer}
+
+\cvsubsection{Organizer and Guest Editor Positions}
 
 
 \begin{cventries}
-\DTLforeach[\equal{\generalRole}{Organizer}]{organizing}{%
+\DTLforeach[\equal{\generalRole}{Organizer}]{professional}{%
 %ProjectName	Date	Role	Location	Description1	Description2    
 \projectname=ConferenceName,%
 \date=Date,%
@@ -82,7 +89,7 @@
 
 
 \begin{cventries}
-\DTLforeach[\equal{\generalRole}{Chair}]{organizing}{%
+\DTLforeach[\equal{\generalRole}{Chair}]{professional}{%
 \projectname=ConferenceName,%
 \date=Date,%
 \role=Role,%
@@ -99,12 +106,32 @@
     }
 }
 \end{cventries}
+\vspace{10pt}
 
+\cvsubsection{Grant Reviewer}
+\begin{cventries}
+\DTLforeach[\equal{\generalRole}{GrantReview}]{professional}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link,
+\type=type}%
+{%
+    \begin{cvreviews}
+      \cvreviewinfo
+        {\projectname}% role
+        {\date}% Date(s)
+        {\DTLifnullorempty{\type}{}{ -- \type}}%
+    \end{cvreviews}
+}
+\end{cventries}
 \vspace{10pt}
 
 \cvsubsection{Journal Reviewer}
 \begin{cventries}
-\DTLforeach[\equal{\role}{Journal Reviewer}]{organizing}{%
+\DTLforeach[\equal{\role}{Journal Reviewer}]{professional}{%
 \projectname=ConferenceName,%
 \date=Date,%
 \role=Role,%
@@ -121,9 +148,11 @@
 \end{cventries}
 \vspace{10pt}
 
+
+
 \cvsubsection{ACL Rolling Review}
 \begin{cventries}
-\DTLforeach[\equal{\role}{ACL Rolling Review}]{organizing}{%
+\DTLforeach[\equal{\role}{ACL Rolling Review}]{professional}{%
 \projectname=ConferenceName,%
 \date=Date,%
 \role=Role,%
@@ -143,9 +172,9 @@
 \vspace{10pt}
 
 
-\cvsubsection{Program Committee Member}
+\cvsubsection{Program Committee Member (Reviewer)}
 \begin{cventries}
-\DTLforeach[\equal{\role}{Program Committee Member}]{organizing}{%
+\DTLforeach[\equal{\role}{Program Committee Member}]{professional}{%
 \projectname=ConferenceName,%
 \date=Date,%
 \role=Role,%
@@ -167,20 +196,4 @@
 
 
 
-\cvsubsection{Community-Based Conference Attendance}
-\begin{cventries}
-\DTLforeach[\equal{\generalRole}{Attendee}]{organizing}{%
-\projectname=ConferenceName,%
-\date=Date,%
-\role=Role,%
-\generalRole=GeneralRole,%
-\location=Location,%
-\link=link}%
-{%
-    \begin{cvreviews}
-    \cvreview
-    {\projectname} % head
-    {\date} % green
-    \end{cvreviews}
-}
-\end{cventries}
+

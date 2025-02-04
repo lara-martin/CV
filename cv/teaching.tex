@@ -7,10 +7,49 @@
 
 %\vspace{4mm}
 
-\begin{cventries}
+% \begin{cventries}
+% \DTLforeach{teaching}{%
+% %ProjectName    Date    Role    Location    Description1 Link  
+% \projectname=ProjectName,%
+% \date=Date,%
+% \role=Role,%
+% \location=Location,%
+% \descone=Description1,%
+% \link=Link%
+% }%
+% {%
+%     \DTLifnullorempty{\link}
+%     {
+%     \cventryNoNote
+%     {\role} % subhead
+%     {\projectname} % head
+%     {\date} % green
+%     {\location} % flushright grey
+%     }%
+%     {%
+%     \cventryteach
+%     {\role} % subhead
+%     {\href{\link}{\projectname}} % head
+%     {\date} % green
+%     {\location} % flushright grey
+%     {%
+%     \DTLifnullorempty{\descone}{}
+%     {
+%     \begin{cvitems}
+%     \item \descone%
+%     \end{cvitems}}
+%     }%
+%     }%
+% }
+% \end{cventries}
+
+
+
+\newcommand*{\uniqueclasses}{}
+\newcommand*{\uniquelocation}{}
+
 \DTLforeach{teaching}{%
-%ProjectName    Date    Role    Location    Description1 Link  
-\projectname=ProjectName,%
+\classtitle=ProjectName,%
 \date=Date,%
 \role=Role,%
 \location=Location,%
@@ -18,29 +57,58 @@
 \link=Link%
 }%
 {%
-    \DTLifnullorempty{\link}
-    {
-    \cventryNoNote
-    {\role} % subhead
-    {\projectname} % head
-    {\date} % green
-    {\location} % flushright grey
+  \expandafter\DTLifinlist\expandafter{\location}{\uniquelocation}%
+  {}% do nothing, already in list
+  {% add to list  
+    \ifdefempty{\uniquelocation}%
+    {\let\uniquelocation\location}% first element of list
+    {% append to list
+      \eappto\uniquelocation{,\location}%
     }%
-    {%
-    \cventryteach
-    {\role} % subhead
-    {\href{\link}{\projectname}} % head
-    {\date} % green
-    {\location} % flushright grey
-    {%
-    \DTLifnullorempty{\descone}{}
-    {
-    \begin{cvitems}
-    \item \descone%
-    \end{cvitems}}
-    }%
-    }%
+  }%
 }
-\end{cventries}
+
+\psforeach{\classlocation}{\uniquelocation}{% for each unique location
+
+\cvsubsection{\classlocation}%
+
+    \DTLforeach[\equal{\location}{\classlocation}]{teaching}{% for each class, if it matches the location 
+        \projectname=ProjectName,%
+        \d=Date,%
+        \r=Role,%
+        \location=Location,%
+        \d=Description1,%
+        \l=Link%
+        }%
+        {%
+            \expandafter\DTLifinlist\expandafter{\projectname}{\uniqueclasses}%
+            {}%
+            {%                  
+                \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm}}%
+                \nohyphens{\entrytitlestyle{\projectname}}%
+                \end{tabular*}%
+                \newline%            
+                \ifdefempty{\uniqueclasses}%
+                {\let\uniqueclasses\projectname}% first element of list
+                {\eappto\uniqueclasses{,\projectname}}% append to list
+                \DTLforeach[\equal{\projectname}{\name}]{teaching}%
+                    {% for each class, if it matches the title 
+                    \name=ProjectName,%
+                    \date=Date,%
+                    \role=Role,%
+                    \loc=Location,%
+                    \descone=Description1,%
+                    \link=Link%
+                    }%
+                    {% 
+                        \hspace{3mm}\entrylocationstyle{\href{\link}{\date}} -- \entrypositionstyle{\role}%
+                        \DTLifnullorempty{\descone}{}{\subdescriptionstyle{, \descone}}%
+                        \newline%
+                    }%
+            }%
+        }% 
+}%
+
+
 
 \vspace{-10pt}

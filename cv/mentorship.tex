@@ -15,14 +15,23 @@
 \then=Then,%
 \now=Now,
 \thesis=thesis,
-\type=type}%
+\type=type,
+\note=Note}%
 {%
+\DTLifnullorempty{\note}{
+\cventry
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
+    {\date}% green
+    {}% flushright grey
+    {}
+}{
  \cventry
     {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
     {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
     {\date}% green
     {}% flushright grey
-    {}%
+    {\note}}%
 }%
 \end{cventries}
 
@@ -53,6 +62,8 @@
 }%
 \end{cventries}
 
+\vspace{.5cm}
+
 \cvsubsection{University of Pennsylvania}
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Pennsylvania} \AND \equal{\type}{Masters}]{thesis}{%
@@ -62,14 +73,22 @@
 \then=Then,%
 \now=Now,
 \thesis=thesis,
-\type=type}%
+\type=type,
+\note=Note}%
 {%
- \cventry
+\DTLifnullorempty{\note}{ \cventry
     {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
     {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
     {\date}% green
     {}% flushright grey
-    {}%
+    {}}%
+    {\cventry
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
+    {\date}% green
+    {}% flushright grey
+    {\note}}%
+
 }%
 \end{cventries}
 
@@ -184,13 +203,18 @@
 
 
 %{\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committees}
-\vspace{0.5cm}
-
+%\vspace{0.5cm}
+\newpage
 
 {\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committee Member}
-
-%\cvsubsection{University of Maryland, Baltimore County}
 \begin{cventries}
+ \cventry
+    {} % subhead
+    {}% head
+    {\underline{Defense Date}}% green
+    {}% flushright grey
+    {}% 
+\vspace{-0.8cm}
  \cventry
     {PhD Language, Literacy, and Culture at UMBC} % subhead
     {Shahin Hossain}% head

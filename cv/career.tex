@@ -1,0 +1,29 @@
+{\color{black}\fontsize{12pt}{1em}\faIcon{seedling}}\cvsection{Career Development}
+
+\begin{cventries}
+    \begin{cvreviews}
+    \cvreview
+    {NCFDD Faculty Success Program} % head
+    {Summer 2024} % green
+    \end{cvreviews}
+\end{cventries}
+
+
+\cvsubsection{Conference Attendance}
+
+\begin{cventries}
+\DTLforeach[\equal{\generalRole}{Attendee}]{professional}{%
+\projectname=ConferenceName,%
+\date=Date,%
+\role=Role,%
+\generalRole=GeneralRole,%
+\location=Location,%
+\link=link}%
+{%
+    \begin{cvreviews}
+    \cvreview
+    {\projectname} % head
+    {\date} % green
+    \end{cvreviews}
+}
+\end{cventries}
