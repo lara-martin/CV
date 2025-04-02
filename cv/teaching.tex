@@ -70,7 +70,8 @@
 
 \psforeach{\classlocation}{\uniquelocation}{% for each unique location
 
-\cvsubsection{\classlocation}%
+
+\cvsubsection{\ifthenelse{\equal{\classlocation}{University of Maryland Baltimore County}}{University of Maryland, Baltimore County}{\classlocation}}%
 
     \DTLforeach[\equal{\location}{\classlocation}]{teaching}{% for each class, if it matches the location 
         \projectname=ProjectName,%
@@ -107,8 +108,8 @@
                     }%
             }%
         }% 
+        \vspace{-10pt}
 }%
 
 
 
-\vspace{-10pt}

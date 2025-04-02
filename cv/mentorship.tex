@@ -3,6 +3,66 @@
 %-------------------------------------------------------------------------------
 
 \DTLloaddb[]{thesis}{cv/thesis.csv}
+\DTLloaddb[]{mentorship}{cv/mentoring.csv}
+
+
+
+
+
+
+\def\phdthesis{0}
+\def\msthesis{0}
+\def\otherphd{0}
+\def\otherms{0}
+\def\undergrad{0}
+\def\other{0}
+\def\thesiscommittee{0}
+\def\totalmentee{0}
+\def\totalthesis{0}
+\def\totaltotal{0}
+
+\DTLforeach{mentorship}{%
+\type=type}{%
+\DTLifeq{\type}{BS}{%
+\DTLgadd{\undergrad}{1}{\undergrad}%
+}{}%
+\DTLifeq{\type}{MS}{%
+\DTLgadd{\otherms}{1}{\otherms}%
+}{}%
+\DTLifeq{\type}{PhD}{%
+\DTLgadd{\otherphd}{1}{\otherphd}%
+}{}%
+\DTLifeq{\type}{Other}{%
+\DTLgadd{\other}{1}{\other}%
+}{}%
+}
+\DTLsavelastrowcount{\totalmentee}
+
+\DTLforeach{thesis}{%
+\type=type}{%
+\DTLifeq{\type}{Masters
+}{%
+\DTLgadd{\msthesis}{1}{\msthesis}%
+}{}%
+\DTLifeq{\type}{PhD}{%
+\DTLgadd{\phdthesis}{1}{\phdthesis}%
+}{}%
+}
+\DTLsavelastrowcount{\totalthesis}
+
+\DTLgadd{\totaltotal}{\totalmentee}{\totalthesis}%
+
+{\color{black}\fontsize{12pt}{1em}\faIcon{lightbulb}} \cvsection{Advising Summary}
+
+\begin{cvhonors}
+\cvhonor{PhD Thesis Advisees}{}{}{\phdthesis{}}
+\cvhonor{MS Thesis Advisees}{}{}{\msthesis{}}
+\cvhonor{Other PhD Advisees}{}{}{\otherphd{}}
+\cvhonor{Other MS Advisees}{}{}{\otherms{}}
+\cvhonor{Undergrad Advisees}{}{}{\undergrad{}}
+\cvhonor{Total Advisees}{}{}{\totaltotal{}}
+
+\end{cvhonors}
 
 {\color{black}\fontsize{12pt}{1em}\faIcon{lightbulb}} \cvsection{PhD Advising}
 
@@ -53,12 +113,20 @@
 \thesis=thesis,
 \type=type}%
 {%
- \cventry
+\DTLifnullorempty{\note}{ \cventry%
     {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person}% head
+    {\date}% green
+    {}% flushright grey
+    {\DTLifnullorempty{\thesis}{}{Thesis: \DTLifnullorempty{\link}{\thesis}{\href{\link}{\thesis}}}}%
+    }%
+    {\cventry%
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}}% subhead
     {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
     {\date}% green
     {}% flushright grey
-    {}%
+    {\note}}%
+    \vspace{0.05cm}
 }%
 \end{cventries}
 
@@ -73,15 +141,17 @@
 \then=Then,%
 \now=Now,
 \thesis=thesis,
+\link=thesisLink,
 \type=type,
 \note=Note}%
 {%
 \DTLifnullorempty{\note}{ \cventry
     {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
-    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
+    {\person}% head
     {\date}% green
     {}% flushright grey
-    {}}%
+    {\DTLifnullorempty{\thesis}{}{Thesis: \DTLifnullorempty{\link}{\thesis}{\href{\link}{\thesis}}}}%
+    }%
     {\cventry
     {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
     {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
@@ -97,7 +167,7 @@
 
 {\color{black}\fontsize{12pt}{1em}\faIcon{hands-helping}} \cvsection{Other Mentorship}
 
-\DTLloaddb[]{mentorship}{cv/mentoring.csv}
+
 
 
 %-------------------------------------------------------------------------------
@@ -203,42 +273,71 @@
 
 
 %{\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committees}
-%\vspace{0.5cm}
-\newpage
+\vspace{0.5cm}
+\DTLloaddb[]{committee}{cv/committee.csv}
 
 {\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committee Member}
+\vspace{-0.2cm}
 \begin{cventries}
  \cventry
     {} % subhead
     {}% head
-    {\underline{Defense Date}}% green
+    {\underline{Defense Date / {\entrydatestyle{Advisor}}}}% green
     {}% flushright grey
     {}% 
-\vspace{-0.8cm}
+\vspace{-0.5cm}
+\DTLforeach{committee}{%
+\person=person,%
+\date=Date,%
+\location=location,%
+\degree=degree,%
+\advisor=advisor}%
+{%
  \cventry
-    {PhD Language, Literacy, and Culture at UMBC} % subhead
-    {Shahin Hossain}% head
-    {}% green
-    {}% flushright grey
-    {}% 
- \cventry
-    {PhD Computer Science at UMBC} % subhead
-    {Sai Vallurupalli}% head
-    {}% green
-    {}% flushright grey
-    {}% 
- \cventry
-    {MS Computer Science at UMBC} % subhead
-    {Aidan Newell}% head
-    {}% green
-    {}% flushright grey
-    {}% 
- \cventry
-    {MS Computer Science at UMBC} % subhead
-    {Ekele Ogbadu}% head
-    {April 2024}% green
-    {}% flushright grey
+    {\degree~at \location} % subhead
+    {\person\entrypositionstyle{\dotfill}}% head
+    {\entrypositionstyle{\textbf \dotfill}\date}% green
+    {\advisor}% flushright grey
     {}%
+}%
+
+
+%  \cventry
+%     {PhD Computer Science at Georgia Tech} % subhead
+%     {Amal Alabdulkarim\entrypositionstyle{\dotfill}}% head
+%     {\entrypositionstyle{\textbf \dotfill}TBD 2026}% green
+%     {Dr. Mark Riedl}% flushright grey
+%     {}% 
+%  \cventry
+%     {PhD Language, Literacy, and Culture at UMBC} % subhead
+%     {Shahin Hossain\entrypositionstyle{\dotfill}}% head
+%     {\entrypositionstyle{\textbf \dotfill}TBD 2026}% green
+%     {Dr. Ramon Goings}% flushright grey
+%     {}% 
+% \cventry
+%     {MSc at Universidad de la República, Uruguay} % subhead
+%     {Santiago Góngora\entrypositionstyle{\dotfill}}% head
+%     {\entrypositionstyle{\textbf \dotfill}TBD}% green
+%     {Dr. Luis Chiruzzo}% flushright grey
+%     {}% 
+%  \cventry
+%     {PhD Computer Science at UMBC} % subhead
+%     {Sai Vallurupalli\entrypositionstyle{\dotfill}}% head
+%     {\entrypositionstyle{\textbf \dotfill}TBD}% green
+%     {Dr. Frank Ferraro}% flushright grey
+%     {}% 
+%  % \cventry
+%  %    {MS Computer Science at UMBC} % subhead
+%  %    {Aidan Newell}% head
+%  %    {}% green
+%  %    {}% flushright grey
+%  %    {}% 
+%  \cventry
+%     {MS Computer Science at UMBC} % subhead
+%     {Ekele Ogbadu\entrypositionstyle{\dotfill}}% head
+%     {\entrypositionstyle{\textbf \dotfill}April 2024}% green
+%     {Dr. Cynthia Matuszek}% flushright grey
+%     {}%
 
    
 

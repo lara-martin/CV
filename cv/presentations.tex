@@ -83,6 +83,7 @@
         }
 }
 
+\vspace{-5mm}
 
 
 \DTLforeach[\equal{\acadstatus}{Campus}]{presentations}{%
@@ -112,7 +113,8 @@
 \cvsubsection{Invited Speaker Presentations}
 
 \psforeach{\prestitle}{\uniquetalks}{% for each unique talk title
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+    
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}%
     \nohyphens{\entrytitlestyle{``\prestitle''}}%
     \end{tabular*}%
     \newline
@@ -131,13 +133,13 @@
         {\href{\link}{\location}} % head
         {\address}% % flushright grey
         {}%\role}%
-    }
+    }%
 }
 
 
 \cvsubsection{Panelist}
 
-%\vspace{-.2em}
+\vspace{-.3em}
 \begin{cventries}
 \DTLforeach[\equal{\acadstatus}{Panel}]{presentations}{%
     \projectname=ProjectName,%

@@ -113,8 +113,6 @@
 
 
 
-
-
 \RequirePackage{microtype}
 \RequirePackage[
 backend=biber,
@@ -435,6 +433,10 @@ citestyle=numeric-comp,
 % Usage: \mastodon{<mastodon link>}
 \newcommand*{\mastodon}[1]{\def\@mastodon{#1}}
 
+% Defines writer's Bluesky (optional)
+% Usage: \bluesky{<bluesky link>}
+\newcommand*{\bluesky}[1]{\def\@bluesky{#1}}
+
 % Defines writer's skype (optional)
 % Usage: \skype{<skype account>}
 \newcommand*{\skype}[1]{\def\@skype{#1}}
@@ -643,6 +645,12 @@ citestyle=numeric-comp,
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \MYhref[top-links]{\@mastodon}{\faMastodon\acvHeaderIconSep Mastodon}%
         }%
+    % \ifthenelse{\isundefined{\@bluesky}}%
+    %     {}%
+    %     {%
+    %       \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+    %       \MYhref[top-links]{\@bluesky}{{\FA \char"F11B}\acvHeaderIconSep Bluesky}%
+    %     }%        
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
         {%
@@ -885,14 +893,27 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
     \setlength\tabcolsep{0pt}
     \ifempty{#4}{\hspace{-0.5mm}}{%
     \hspace{-1mm}\entrypositionstyle{#4} -- }%-1.5mm
-    \subentrytitlestyle{#2} \dotfill & \ifthenelse{\equal{#1}{}}
-      {\entrydatestyle{#3}}{}
-    \ifempty{#1}%
-      {}%
-      {\honorlocationstyle{#1}\\ & \entrydatestyle{#3}\\}%
+    \subentrytitlestyle{#2} -- \entrydatestyle{#3}\dotfill & \honorlocationstyle{#1} 
+    %\ifempty{#1}{}{\honorlocationstyle{#1}\\ & \entrydatestyle{#3}\\}%
   \end{tabular*}
 }
 
+
+% \newcommand*{\presentry}[4]{%
+% %date, location, address, role
+%   \setlength\tabcolsep{0pt}
+%   \setlength{\extrarowheight}{0pt}
+%   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 3.5cm} R{3.5cm}}
+%     \setlength\tabcolsep{0pt}
+%     \ifempty{#4}{\hspace{-0.5mm}}{%
+%     \hspace{-1mm}\entrypositionstyle{#4} -- }%-1.5mm
+%     \subentrytitlestyle{#2} \dotfill & \ifthenelse{\equal{#1}{}}
+%       {\entrydatestyle{#3}}{}
+%     \ifempty{#1}%
+%       {}%
+%       {\honorlocationstyle{#1}\\ & \entrydatestyle{#3}\\}%
+%   \end{tabular*}
+% }
 
 
 \newcommand*{\cventryNoNote}[4]{%
