@@ -275,13 +275,12 @@
 %{\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committees}
 \vspace{0.5cm}
 \DTLloaddb[]{committee}{cv/committee.csv}
-
 {\color{black}\fontsize{12pt}{1em}\faIcon{users}} \cvsection{Thesis Committee Member}
 \vspace{-0.2cm}
 \begin{cventries}
  \cventry
     {} % subhead
-    {}% head
+    {\cvsubsection{PhD}}% head
     {\underline{Defense Date / {\entrydatestyle{Advisor}}}}% green
     {}% flushright grey
     {}% 
@@ -293,13 +292,45 @@
 \degree=degree,%
 \advisor=advisor}%
 {%
+\IfSubStr{\degree}{PhD}{
  \cventry
     {\degree~at \location} % subhead
     {\person\entrypositionstyle{\dotfill}}% head
     {\entrypositionstyle{\textbf \dotfill}\date}% green
     {\advisor}% flushright grey
     {}%
+    }%
+    {}%
 }%
+
+
+\end{cventries}
+
+
+\begin{cventries}%
+ \cventry%
+    {} % subhead
+    {\cvsubsection{Masters}}% head
+    {\underline{Defense Date / {\entrydatestyle{Advisor}}}}% green
+    {}% flushright grey
+    {}% 
+\vspace{-0.5cm}%
+\DTLforeach{committee}{%
+\person=person,%
+\date=Date,%
+\location=location,%
+\degree=degree,%
+\advisor=advisor}%
+{%
+{\IfSubStr{\degree}{PhD}{}%
+    {\cventry
+    {\degree~at \location} % subhead
+    {\person\entrypositionstyle{\dotfill}}% head
+    {\entrypositionstyle{\textbf \dotfill}\date}% green
+    {\advisor}% flushright grey
+    {}%
+    }%    
+}}%
 
 
 %  \cventry
