@@ -691,6 +691,7 @@ citestyle=numeric-comp,
     \ifthenelse{\isundefined{\@quote}}%
       {}%
       {\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
+      
   \end{minipage}%
   \begin{minipage}[c]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
@@ -708,11 +709,15 @@ citestyle=numeric-comp,
   \fancyfoot[R]{\footerstyle{#3}}
 }
 
+\newcommand{\iconstyle}[1]{\color{black}\fontsize{12pt}{1em}#1}
+
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
-\newcommand{\cvsection}[1]{%
-  \vspace{\acvSectionTopSkip}
-  \sectionstyle{#1}
+\newcommand{\cvsection}[2]{%
+  %\vspace{\acvSectionTopSkip}
+  \vspace{.5cm}
+  \iconstyle{#1}
+  \sectionstyle{#2}
   \phantomsection
   \color{gray}\vhrulefill{0.9pt}
 }
@@ -1037,16 +1042,17 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvtalknotes}{%
-    \vspace{-8mm}
   %\vspace{-4.0mm}
+    \small
   \begin{justify}
-  \begin{itemize}[leftmargin=2.5ex, nosep, noitemsep]
+  \vspace{-1mm}
+  \begin{itemize}[leftmargin=5ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{+}%\bullet}
+    \renewcommand{\labelitemi}{$\mapsto$}%\bullet}
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
+  \vspace{-1mm}
 }
 
 

@@ -1,7 +1,10 @@
-﻿ConferenceName,Date,Role,GeneralRole,Location,link,sortDate,type
-Conference on Empirical Methods in Natural Language Processing (EMNLP),"November 5-9, 2025",ACL Rolling Review,Senior Area Chair,"Suzhou, China",,11/5/2025,EMNLP 2025
+ConferenceName,Date,Role,GeneralRole,Location,link,sortDate,type
+International Joint Conference on Natural Language Processing \& Asia-Pacific Chapter of the Association for Computational Linguistics (IJCNLP-AACL),"December 20-24, 2025",Program Committee Member,Reviewer,"Mumbai, India",,12/20/2025,Student Research Workshop (SRW) Mentor
+International Conference on Natural Language Generation (INLG),"October 29-November 2, 2025",Area Chair,Chair,"Hanoi, Vietnam",,10/29/2025,
+"AAAI/ACM Conference on AI, Ethics, and Society (AIES)","October 20-22, 2025",Program Committee Member,Reviewer,"Madrid, Spain",,10/20/2025,
+Conference on Empirical Methods in Natural Language Processing (EMNLP),May 2025,ACL Rolling Review,Senior Area Chair,"Suzhou, China",,11/5/2025,EMNLP 2025
 Annual Meeting of the Association for Computational Linguistics (ACL),March 2025,ACL Rolling Review,Reviewer,"Vienna, Austria",,7/1/2025,ACL 2025
-AAAI Conf. on Artificial Intelligence and Interactive Digital Entertainment (AIIDE),"November 10-14, 2025",Ethics Chair,Organizer,"Edmonton, Canada",,11/10/2025,
+AAAI Conf. on Artificial Intelligence and Interactive Digital Entertainment (AIIDE),"November 10-14, 2025",Ethics Chair,Organizer,"Edmonton, Canada",https://sites.google.com/ualberta.ca/aiide2025/home,11/10/2025,
 National Science Foundation (IIS),2025,Reviewer,GrantReview,,,3/1/2025,
 Deutsche Forschungsgemeinschaft,2025,Reviewer,GrantReview,,,2/1/2025,
 National Science Foundation,2025,Reviewer,GrantReview,,,1/1/2025,
@@ -35,7 +38,7 @@ Conference on Empirical Methods in Natural Language Processing (EMNLP),"December
 AAAI Conf. on Artificial Intelligence and Interactive Digital Entertainment (AIIDE),"October 24-28, 2022",Program Committee Member,Reviewer,"Pomona, CA",,10/24/2022,Software Track
 ACM Conference on Creativity \& Cognition (C\&C),"June 20-23, 2022",Program Committee Member,Reviewer,"Venice, Italy",,6/20/2022,Posters Track
 ,April 2022,ACL Rolling Review,Reviewer,,,4/1/2022,
-AAAI Conf. on Artificial Intelligence and Interactive Digital Entertainment (AIIDE),"February 22-March 1, 2022",Program Committee Member,Reviewer,Virtual,,2/22/2022,
+AAAI Conference on Artificial Intelligence (AAAI),"February 22-March 1, 2022",Program Committee Member,Reviewer,Virtual,,2/22/2022,
 ,January 2022,ACL Rolling Review,Reviewer,,,1/1/2022,
 AAAI Conf. on Artificial Intelligence and Interactive Digital Entertainment (AIIDE),"October 11-15, 2021",Doctoral Consortium Chair,Organizer,Virtual,https://sites.google.com/view/aiide2021/,10/11/2021,
 AAAI Conf. on Artificial Intelligence and Interactive Digital Entertainment (AIIDE),"October 11-15, 2021",Program Committee Member,Reviewer,Virtual,,10/11/2021,Research Track

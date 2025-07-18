@@ -2,7 +2,8 @@
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
 
-{\color{black}\fontsize{12pt}{1em}\faIcon{chart-bar}} \cvsection{Invited Talks and Panels}
+
+\cvsection{\faIcon{chart-bar}}{Invited Talks and Panels}
 
 \DTLloaddb[]{presentations}{cv/presentations.csv}
 \cvsubsection{Summary}
@@ -46,15 +47,13 @@
 % \cvhonor{Total Presentations}{}{2013 -- Present}{\totalpres{}}
 \end{cvhonors}
 
-\vspace{0.7cm}
 
 
+\vspace{10pt}
 \newcommand*{\uniquetalks}{}
-
 \cvsubsection{Special Conference Presentations}
-
 \DTLforeach[\equal{\acadstatus}{Conference}]{presentations}{%
-\projectname=ProjectName,%
+\prestitle=ProjectName,%
 \date=Date,%
 \role=Role,%
 \location=Location,%
@@ -63,28 +62,52 @@
 \link=link,%
 \note=note}%
 {%
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
-     \nohyphens{\entrytitlestyle{``\href{\link}{\projectname}''}}
-    \end{tabular*}
+\expandafter\DTLifinlist\expandafter{\prestitle}{\uniquetalks}%
+  {}% do nothing, already in list
+  {% add to list
+    \ifdefempty{\uniquetalks}%
+    {\let\uniquetalks\prestitle}% first element of list
+    {% append to list
+      \eappto\uniquetalks{,\prestitle}%
+    }%
+  }%
+}
+
+\psforeach{\prestitle}{\uniquetalks}{% for each unique talk title
+    
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}%
+    \nohyphens{\entrytitlestyle{``\prestitle''}}%
+    \end{tabular*}%
     \newline
-     \presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
+    \DTLforeach[\equal{\projectname}{\prestitle}\AND\equal{\acadstatus}{Conference}]{presentations}{% for each presentation, if it matches the title AND it is a conference talk
+    \projectname=ProjectName,%
+    \date=Date,%
+    \role=Role,%
+    \location=Location,%
+    \address=address,%
+    \acadstatus=Status,%
+    \link=link,%
+    \note=note}%
+    {%
+     \noindent\presentry% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
         {\date} % green
-        {\location} % head
+        {\href{\link}{\location}} % head
         {\address}% % flushright grey
+        {}%\role}%
+        \DTLifnullorempty{\note}%
         {}%
-        \DTLifnullorempty
-        {\note}
-        {}
-        {
-        \begin{cvtalknotes}
-            {\item {\bf \note}}
-        \end{cvtalknotes}
-        \vspace{5mm}
-        }
+        {%
+        \begin{cvtalknotes}%
+            {\item {\bf \note}}%
+        \end{cvtalknotes}%
+        }%
+    }%
 }
 
 \vspace{-5mm}
-
+\vspace{10pt}
+\cvsubsection{Invited Speaker Presentations}
+\renewcommand*{\uniquetalks}{}
 
 \DTLforeach[\equal{\acadstatus}{Campus}]{presentations}{%
 \prestitle=ProjectName,%
@@ -96,7 +119,7 @@
 \link=link,%
 \note=note}%
 {%
-  \expandafter\DTLifinlist\expandafter{\prestitle}{\uniquetalks}%
+\expandafter\DTLifinlist\expandafter{\prestitle}{\uniquetalks}%
   {}% do nothing, already in list
   {% add to list
     \ifdefempty{\uniquetalks}%
@@ -107,10 +130,9 @@
   }%
 }
 
-\vspace{0.6cm}
 
 
-\cvsubsection{Invited Speaker Presentations}
+
 
 \psforeach{\prestitle}{\uniquetalks}{% for each unique talk title
     
@@ -135,7 +157,8 @@
         {}%\role}%
     }%
 }
-
+\vspace{-5mm}
+\vspace{10pt}
 
 \cvsubsection{Panelist}
 
