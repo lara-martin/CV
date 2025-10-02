@@ -1,3 +1,5 @@
+\DTLloaddb[]{development}{cv/development.csv}
+
 \cvsection{\faIcon{seedling}}{Career Development}
 
 \begin{cventries}
@@ -17,11 +19,10 @@
 \cvsubsection{Conference Attendance}
 
 \begin{cventries}
-\DTLforeach[\equal{\generalRole}{Attendee}]{professional}{%
+\DTLforeach[\equal{\role}{Conference Attendee}]{development}{%
 \projectname=ConferenceName,%
 \date=Date,%
 \role=Role,%
-\generalRole=GeneralRole,%
 \location=Location,%
 \link=link}%
 {%
