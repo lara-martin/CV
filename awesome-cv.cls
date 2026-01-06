@@ -95,21 +95,12 @@
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
-% Needed to deal a paragraphs
+% Needed to deal w/ paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
 %\RequirePackage[unicode]{hyperref}%hidelinks
+\usepackage{hyperref}   
 
-% ORCID icon
-\RequirePackage{academicons}
-
-% https://tex.stackexchange.com/questions/61015/how-to-use-different-colors-for-different-href-commands
-\RequirePackage[colorlinks = true,
-            linkcolor = lavender,
-            urlcolor  = lavender,
-            citecolor = lavender,
-            anchorcolor = lavender]{hyperref}
-\newcommand{\MYhref}[3][lavender]{\href{#2}{\color{#1}{#3}}}%
 
 
 
@@ -176,7 +167,7 @@ citestyle=numeric-comp,
 
 
 % https://tex.stackexchange.com/a/51439
-\renewcommand*{\bibfont}{\fontsize{11pt}{1em}\bodyfontlight\upshape}
+\renewcommand*{\bibfont}{\fontsize{11pt}{1em}\bodyfontlight\upshape\color{darktext}}
 \renewcommand\UrlFont{\fontsize{11pt}{1em}\bodyfontlight\upshape}
 
 
@@ -230,7 +221,7 @@ citestyle=numeric-comp,
 % Basic colors
 \definecolor{green}{HTML}{C2E15F}
 \definecolor{orange}{HTML}{FDA333}
-\definecolor{purple}{HTML}{D3A4F9}
+%\definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
 % Text colors
@@ -253,14 +244,49 @@ citestyle=numeric-comp,
 \definecolor{mint}{HTML}{A1CECE}
 \definecolor{teal}{HTML}{6AB4AE}
 \definecolor{lime}{HTML}{c8f081}
-\definecolor{purple}{HTML}{945090}
+\definecolor{purple}{HTML}{887496}%945090}
 \definecolor{lavender}{HTML}{B77BB4}
-\definecolor{deep-purple}{HTML}{600060}
+\definecolor{deep-purple}{HTML}{600060}%600060}
 \definecolor{pink}{HTML}{f2b6c2}
 \definecolor{yellow}{HTML}{f2f5a9}
+\definecolor{dark-teal}{HTML}{3f8a84}
+\definecolor{back-yellow}{HTML}{F9F1E1}
+
+\definecolor{umbc-teal}{HTML}{007176}
+\definecolor{umbc-yellow}{HTML}{fdb515}
+\definecolor{umbc-red}{HTML}{da2128}
+\definecolor{umbc-brown}{HTML}{a67a05}
 
 
 \colorlet{top-links}{yellow}
+
+
+% ORCID icon
+\RequirePackage{academicons}
+
+% https://tex.stackexchange.com/questions/61015/how-to-use-different-colors-for-different-href-commands
+% \RequirePackage[colorlinks = true,
+%             linkcolor = purple,
+%             urlcolor  = purple,
+%             citecolor = purple,
+%             anchorcolor = purple]{hyperref}
+\newcommand{\MYhref}[3][deep-purple]{\href{#2}{\color{#1}{#3}}}%
+
+% \newcommand{\innerhref}[2]{\href{#1}{\colorbox{back-yellow}{#2}}}%
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor = deep-purple,
+    urlcolor  = deep-purple,
+    citecolor = deep-purple,
+    anchorcolor = deep-purple,
+    pdfborderstyle={/S/U/W 1}, % underline links instead of boxes
+    linkbordercolor=red,       % color of internal links
+    citebordercolor=green,     % color of links to bibliography
+    filebordercolor=magenta,   % color of file links
+    urlbordercolor=lime        % color of external links
+}
+
 
 % Boolean value to switch section color highlighting
 \newbool{acvSectionColorHighlight}
@@ -304,50 +330,50 @@ citestyle=numeric-comp,
 % Configure styles for each CV elements
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{white} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{purple} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{umbc-yellow} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{10.6pt}{1em}\bodyfont\scshape\color{white} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{9pt}{1em}\headerfont\itshape\color{white} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{8.8pt}{1em}\headerfont\color{white} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\itshape\color{darktext} #1}}
-\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
+\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{darktext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{teal} #1}}
-\newcommand*{\entrylocationstylebold}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{graytext} #1}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{darktext} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{darktext} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{dark-teal} #1}}
+\newcommand*{\entrylocationstylebold}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\upshape\color{darktext} #1}}
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\mdseries\color{darktext} #1}}
-\newcommand*{\subentrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\subentrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\subentrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{teal} #1}}
-\newcommand*{\subdescriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\subentrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{darktext} #1}}
+\newcommand*{\subentrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{darktext} #1}}
+\newcommand*{\subentrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{dark-teal} #1}}
+\newcommand*{\subdescriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{darktext} #1}}
 
 % For elements of honor
-\newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}} %author
+\newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}} %author
 \newcommand*{\honorpositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}} %article
-\newcommand*{\honordatestyle}[1]{{\em\fontsize{9pt}{1em}\bodyfont\color{lighttext} #1}} %location
-\newcommand*{\honorlocationstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{teal} #1}} %date
+\newcommand*{\honordatestyle}[1]{{\em\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}} %location
+\newcommand*{\honorlocationstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{dark-teal} #1}} %date
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{darktext} #1}}
 
 % For elements of the cover letter
-\newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-\newcommand*{\recipientaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{darktext}\@sectioncolor #1}}
+\newcommand*{\recipientaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{darktext} #1}}
 \newcommand*{\recipienttitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
-\newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{graytext}}
+\newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{darktext} #1}}
+\newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{darktext}}
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
+\newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{darktext} #1}}
 
 
 %-------------------------------------------------------------------------------
