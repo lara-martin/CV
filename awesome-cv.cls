@@ -99,18 +99,21 @@
 \RequirePackage{parskip}
 % Needed to deal hyperlink
 %\RequirePackage[unicode]{hyperref}%hidelinks
-\usepackage{hyperref}   
-
-
-
-
+\RequirePackage{hyperref}   
+% For reformatting titles
+\RequirePackage[explicit]{titlesec}
 \RequirePackage{microtype}
+
+
+
+% Weird BibLaTeX stuff
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[
 backend=biber,
 %style=ieee,
 sorting=ymn,
 maxnames=30,
-firstinits=true,
+giveninits=true,
 %defernumbers=true,
 sortcites=true,
 citestyle=numeric-comp,
@@ -138,8 +141,6 @@ citestyle=numeric-comp,
     \field{author}
   }
 }
-
-
 
 
 % For adding acceptance rate after bib entry
@@ -177,7 +178,7 @@ citestyle=numeric-comp,
 
 
 \defbibheading{bibliography}[\bibname]{%
-\cvsubsection{#1}%
+\subsection*{#1}%
 \markboth{#1}{#1}}
 
 \RequirePackage{ifthen}
@@ -336,7 +337,8 @@ citestyle=numeric-comp,
 \newcommand*{\headersocialstyle}[1]{{\fontsize{8.8pt}{1em}\headerfont\color{white} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{darktext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+%\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{darkgray} #1}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
@@ -345,6 +347,7 @@ citestyle=numeric-comp,
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{darktext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{darktext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{dark-teal} #1}}
+\newcommand*{\headerrightcolumn}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{darktext}\underline{#1}}}
 \newcommand*{\entrylocationstylebold}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\upshape\color{darktext} #1}}
 
@@ -739,23 +742,32 @@ citestyle=numeric-comp,
 
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
-\newcommand{\cvsection}[2]{%
-  %\vspace{\acvSectionTopSkip}
-  \vspace{.5cm}
-  \iconstyle{#1}
-  \sectionstyle{#2}
-  \phantomsection
-  \color{gray}\vhrulefill{0.9pt}
-}
+% \newcommand{\cvsection}[2]{%
+%   %\vspace{\acvSectionTopSkip}
+%   \vspace{.5cm}
+%   \iconstyle{#1}
+%   \sectionstyle{#2}
+%   \phantomsection
+%   \color{gray}\vhrulefill{0.9pt}
+% }
+
+% https://tex.stackexchange.com/questions/33386/section-heading-text-embedded-in-horizontal-rule
+\def\Vhrulefill{\color{darkgray}\leavevmode\leaders\hrule height 0.2ex depth \dimexpr0.4pt-0.2ex\hfill\kern0pt}
+
+\titleformat{\section}{}{\thesection}{}{\sectionstyle{#1}~~\Vhrulefill}
+\titlespacing\section{0pt}{20pt}{8pt} %left before after
 
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
-\newcommand{\cvsubsection}[1]{%
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
-  \subsectionstyle{\underline{#1}}
-  \phantomsection
-}
+% \newcommand{\cvsubsection}[1]{%
+%   \vspace{\acvSectionContentTopSkip}
+%   \vspace{-3mm}
+%   \subsectionstyle{\underline{#1}}
+%   \phantomsection
+% }
+
+\titleformat{\subsection}{}{\thesection}{}{\subsectionstyle{\underline{#1}}}
+\titlespacing\subsection{-0.5mm}{10pt}{0pt}%
 
 \newcommand{\lettersubsection}[1]{%
   \vspace{\acvSectionContentTopSkip}
@@ -807,6 +819,7 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 %     {\role}{\projectname}{\date} {\location}
+
 \newcommand*{\cventry}[5]{%
   \vspace{-1.0mm} %-2mm
   \setlength\tabcolsep{0pt}
@@ -817,10 +830,22 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \fluf\entrydatestyle{#4} \\}
       {\entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrydatestyle{#4}}
-    \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\subdescriptionstyle{#5}}}
+    \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\hspace{-1pt}\subdescriptionstyle{#5}}}
   \end{tabular*}%
-  \par\addvspace{-4pt}%0
+  %\par\addvspace{-4pt}%0
 }
+
+\newcommand*{\cventryheader}[2]{%
+  \vspace{-1.0mm} %-2mm
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \subsection*{#1} & \vspace{-14pt}\headerrightcolumn{#2}
+  \end{tabular*}%
+  %\par\addvspace{-4pt}%0
+}
+
+
 
 % \newcommand*{\cventryheader}[2]{%
 %   \vspace{-1.0mm} %-2mm
@@ -868,7 +893,7 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\subentrypositionstyle{#1} & \fluf\subentrydatestyle{#4} \\}
-      {\subentrytitlestyle{#2}\newline{}\subentrypositionstyle{#1} & \subentrylocationstyle{#3}\newline{}\subentrydatestyle{#4}}
+      {\subentrytitlestyle{#2~}\newline{}\subentrypositionstyle{#1} & \subentrylocationstyle{#3}\newline{}\subentrydatestyle{#4}}
     \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
   \end{tabular*}%
   \par\addvspace{-4pt}%0
@@ -923,7 +948,9 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 3.5cm} R{3.5cm}}
     \setlength\tabcolsep{0pt}
     \ifempty{#4}{\hspace{-0.5mm}}{%
-    \hspace{-1mm}\entrypositionstyle{#4} -- }%-1.5mm
+    %\hspace{-1mm}
+    \hspace{2mm}
+    \entrypositionstyle{#4} -- }%-1.5mm
     \subentrytitlestyle{#2} -- \entrydatestyle{#3}\dotfill & \honorlocationstyle{#1} 
     %\ifempty{#1}{}{\honorlocationstyle{#1}\\ & \entrydatestyle{#3}\\}%
   \end{tabular*}
@@ -1016,7 +1043,7 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
 
 \newenvironment{cvreviews}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-5mm}
+  \vspace{-3mm}
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}

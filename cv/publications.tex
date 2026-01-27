@@ -3,14 +3,16 @@
 %-------------------------------------------------------------------------------
 %{\color{black}\fontsize{12pt}{1em}} 
 
-\cvsection{\faIcon{paper-plane}}{Publications}
+\section*{{\iconstyle{\faIcon{paper-plane}}} Publications}
 \vspace{0.5em}
 \defbibnote{bothnote}{ {\footnotesize $^*$equal contribution, $^\dagger$presented}}
 \defbibnote{presented}{ {\footnotesize $^\dagger$presented}}
 
 \nocite{*}
+\BiblatexSplitbibDefernumbersWarningOff
 \printbibliography[keyword={thesis}, title=PhD Dissertation]
-\vspace{10pt}
+%\vspace{10pt}
+\newpage
 \printbibliography[prenote=bothnote, keyword={conference}, title=Conference Proceedings]
 \vspace{10pt}
 \printbibliography[prenote=bothnote, keyword={workshop}, title=Peer-Reviewed Workshop Papers]

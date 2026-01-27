@@ -17,10 +17,22 @@
 % Claud D. Park <posquit0.bj@gmail.com>
 % http://www.posquit0.com
 %-------------------------------------------------------------------------------
+% Document Taggging
+% https://latex3.github.io/tagging-project/documentation/usage-instructions
+\DocumentMetadata{
+  lang        = en,
+  pdfstandard = ua-2,
+  pdfstandard = a-4f, %or a-4
+  tagging=on%,
+  %tagging-setup={math/setup=mathml-SE} 
+}
+
+
+
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[11pt, letterpaper]{awesome-cv}
 
 
 \usepackage{datatool}
@@ -141,7 +153,7 @@
 % \photo{./examples/profile.png}
 \name{Dr.}{Lara J.}{Martin}
 \position{Assistant Professor, CSEE \bullet~University of Maryland, Baltimore County (UMBC)}
-\address{Information Technology and Engineering (ITE) Building, Room 216}
+\address{Information Technology and Engineering (ITE) Building, Room 342-A}
 
 
 
@@ -169,7 +181,7 @@
 \AddToShipoutPictureBG*{%
   \AtPageUpperLeft{%
     \raisebox{-\height}{%
-      \includegraphics[width=\paperwidth,height=0.19\paperwidth]{sidebar.png}% %0.175\paperwidth]{sidebar.png}%
+      \includegraphics[width=\paperwidth,height=0.19\paperwidth,artifact]{sidebar.png}% %0.175\paperwidth]{sidebar.png}%
     }%
   }
 }

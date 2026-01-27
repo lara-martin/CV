@@ -3,10 +3,10 @@
 %-------------------------------------------------------------------------------
 
 
-\cvsection{\faIcon{chart-bar}}{Invited Talks and Panels}
+\section*{{\iconstyle{\faIcon{chart-bar}}} Invited Talks and Panels}
 
 \DTLloaddb[]{presentations}{cv/presentations.csv}
-\cvsubsection{Summary}
+\subsection*{Summary}
 %\def\invitedpres{0}
 \def\campuspres{0}
 \def\conferencepres{0}
@@ -51,7 +51,7 @@
 
 \vspace{10pt}
 \newcommand*{\uniquetalks}{}
-\cvsubsection{Special Conference Presentations}
+\subsection*{Special Conference Presentations}
 \DTLforeach[\equal{\acadstatus}{Conference}]{presentations}{%
 \prestitle=ProjectName,%
 \date=Date,%
@@ -94,19 +94,23 @@
         {\href{\link}{\location}} % head
         {\address}% % flushright grey
         {}%\role}%
+        
         \DTLifnullorempty{\note}%
         {}%
         {%
-        \begin{cvtalknotes}%
-            {\item {\bf \note}}%
-        \end{cvtalknotes}%
+        \vspace{-5pt}
+        \hspace{20pt}$\mapsto$\hspace{2mm}{\bf \note}%
+        % \begin{cvtalknotes}%
+        %     {\item {\bf \note}}%
+        % \end{cvtalknotes}%
         }%
+
     }%
 }
 
-\vspace{-5mm}
-\vspace{10pt}
-\cvsubsection{Invited Speaker Presentations}
+
+
+\subsection*{Invited Speaker Presentations}
 \renewcommand*{\uniquetalks}{}
 
 \DTLforeach[\equal{\acadstatus}{Campus}]{presentations}{%
@@ -156,13 +160,14 @@
         {\address}% % flushright grey
         {}%\role}%
     }%
+    
 }
 \vspace{-5mm}
 \vspace{10pt}
 
-\cvsubsection{Panelist}
+\subsection*{Panelist}
 
-\vspace{-.3em}
+%\vspace{-.3em}
 \begin{cventries}
 \DTLforeach[\equal{\acadstatus}{Panel}]{presentations}{%
     \projectname=ProjectName,%
@@ -181,6 +186,7 @@
     {\address} % flushright grey
     {%
     }
+    
 }
 \end{cventries}
 

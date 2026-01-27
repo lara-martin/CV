@@ -5,7 +5,8 @@
 %\vspace{-10pt}
 
 %{\color{black}\fontsize{12pt}{1em}} 
-\cvsection{\faIcon{chalkboard-teacher}}{Teaching}
+\section*{{\iconstyle{\faIcon{chalkboard-teacher}}} Teaching}
+
 
 %\vspace{4mm}
 
@@ -73,8 +74,7 @@
 \psforeach{\classlocation}{\uniquelocation}{% for each unique location
 
 
-\cvsubsection{\ifthenelse{\equal{\classlocation}{University of Maryland Baltimore County}}{University of Maryland, Baltimore County}{\classlocation}}%
-
+\subsection*{\ifthenelse{\equal{\classlocation}{University of Maryland Baltimore County}}{University of Maryland, Baltimore County}{\classlocation}}%
     \DTLforeach[\equal{\location}{\classlocation}]{teaching}{% for each class, if it matches the location 
         \projectname=ProjectName,%
         \d=Date,%
@@ -86,7 +86,7 @@
         {%
             \expandafter\DTLifinlist\expandafter{\projectname}{\uniqueclasses}%
             {}%
-            {%                  
+            {% 
                 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm}}%
                 \nohyphens{\entrytitlestyle{\projectname}}%
                 \end{tabular*}%

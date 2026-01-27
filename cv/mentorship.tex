@@ -2,11 +2,6 @@
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
 
-\DTLloaddb[]{thesis}{cv/thesis.csv}
-\DTLloaddb[]{mentorship}{cv/mentoring.csv}
-
-
-
 
 
 
@@ -21,8 +16,8 @@
 \def\totalthesis{0}
 \def\totaltotal{0}
 
-\DTLforeach{mentorship}{%
-\type=type}{%
+\DTLloaddb[]{mentorship}{cv/mentoring.csv}
+\DTLforeach{mentorship}{\type=type}{%
 \DTLifeq{\type}{BS}{%
 \DTLgadd{\undergrad}{1}{\undergrad}%
 }{}%
@@ -38,10 +33,9 @@
 }
 \DTLsavelastrowcount{\totalmentee}
 
-\DTLforeach{thesis}{%
-\type=type}{%
-\DTLifeq{\type}{Masters
-}{%
+\DTLloaddb[]{thesis}{cv/thesis.csv}
+\DTLforeach{thesis}{\type=type}{%
+\DTLifeq{\type}{Masters}{%
 \DTLgadd{\msthesis}{1}{\msthesis}%
 }{}%
 \DTLifeq{\type}{PhD}{%
@@ -53,7 +47,7 @@
 \DTLgadd{\totaltotal}{\totalmentee}{\totalthesis}%
 
 
-\cvsection{\faIcon{lightbulb}}{Advising Summary}
+\section*{{\iconstyle{\faIcon{lightbulb}}} Advising Summary}
 
 \begin{cvhonors}
 \cvhonor{PhD Thesis Advisees}{}{}{\phdthesis{}}
@@ -68,10 +62,10 @@
 
 
 
-\cvsection{\faIcon{lightbulb}}{PhD Advising}
+\section*{{\iconstyle{\faIcon{lightbulb}}} PhD Advising}
 
-\cvsubsection{University of Maryland, Baltimore County}
-\vspace{-1mm}
+\subsection*{University of Maryland, Baltimore County}
+%\vspace{-1mm}
 
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Maryland, Baltimore County} \AND \equal{\type}{PhD}]{thesis}{%
@@ -85,19 +79,22 @@
 \note=Note}%
 {%
 \DTLifnullorempty{\note}{
-\cventry
-    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
-    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
-    {\date}% green
-    {}% flushright grey
-    {}
-}{
  \cventry
     {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
     {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
     {\date}% green
     {}% flushright grey
-    {\note}}%
+    {}%
+ }{
+ \cventry
+    {\then \DTLifnullorempty{\now}{}{ $\rightarrow$ \now}} % subhead
+    {\person \DTLifnullorempty{\thesis}{}{~(\href{\thesis}{thesis})}}% head
+    {\date}% green
+    {}% flushright grey
+    {\note}%
+    }%
+
+    \vspace{0.05cm}
 }%
 \end{cventries}
 
@@ -105,10 +102,10 @@
 
 
 
-\cvsection{\faIcon{lightbulb}}{Masters Thesis Advising}
+\section*{{\iconstyle{\faIcon{lightbulb}}} Masters Thesis Advising}
 
-\cvsubsection{University of Maryland, Baltimore County}
-\vspace{-2mm}
+\subsection*{University of Maryland, Baltimore County}
+%\vspace{-2mm}
 
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Maryland, Baltimore County} \AND \equal{\type}{Masters}]{thesis}{%
@@ -134,15 +131,16 @@
     {\date}% green
     {}% flushright grey
     {\note}}%
+    
     \vspace{0.05cm}
 }%
 \end{cventries}
 
-%\vspace{10pt}
-\newpage
+\vspace{10pt}
 
-\cvsubsection{University of Pennsylvania}
-\vspace{-2mm}
+
+\subsection*{University of Pennsylvania}
+%\vspace{-2mm}
 
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Pennsylvania} \AND \equal{\type}{Masters}]{thesis}{%
@@ -170,12 +168,13 @@
     {}% flushright grey
     {\note}}%
 
+\vspace{0.05cm}
 }%
 \end{cventries}
 
 
 
-\cvsection{\faIcon{hands-helping}}{Other Mentorship}
+\section*{{\iconstyle{\faIcon{hands-helping}}} Other Mentorship}
 
 
 
@@ -208,8 +207,8 @@
 
 
 
-\cvsubsection{University of Maryland, Baltimore County}
-\vspace{-2mm}
+\subsection*{University of Maryland, Baltimore County}
+%\vspace{-2mm}
 
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Maryland, Baltimore County}]{mentorship}{%
@@ -225,12 +224,14 @@
     {\date}% green
     {}% flushright grey
     {}%
+
+    \vspace{0.05cm}
 }%
 \end{cventries}
 
 \vspace{10pt}
-\cvsubsection{Outreach}
-\vspace{-2mm}
+\subsection*{Outreach}
+%\vspace{-2mm}
 
 \begin{cventries}
  \cventry
@@ -241,11 +242,11 @@
     {}%
 \end{cventries}
 
-\vspace{0.5cm}
+\vspace{10pt}
 
 
-\cvsubsection{University of Pennsylvania}
-\vspace{-2mm}
+\subsection*{University of Pennsylvania}
+%\vspace{-2mm}
 
 \begin{cventries}
 \DTLforeach[\equal{\location}{University of Pennsylvania}]{mentorship}{%
@@ -261,13 +262,15 @@
     {\date}% green
     {}% flushright grey
     {}%
+
+    \vspace{0.05cm}
 }%
 \end{cventries}
 
 \vspace{10pt}
 
-\cvsubsection{Georgia Institute of Technology}
-\vspace{-2mm}
+\subsection*{Georgia Institute of Technology}
+%\vspace{-2mm}
 
 \begin{cventries}
 \DTLforeach[\equal{\location}{Georgia Institute of Technology}]{mentorship}{%
@@ -283,6 +286,8 @@
     {\date}% green
     {}% flushright grey
     {}%
+
+    \vspace{0.05cm}
 }%
 \end{cventries}
 
@@ -292,16 +297,16 @@
 \DTLloaddb[]{committee}{cv/committee.csv}
 
 
-\cvsection{\faIcon{users}}{Thesis Committee Member}
-\vspace{-0.2cm}
-\begin{cventries}
- \cventry
-    {} % subhead
-    {\hspace{-0.1cm}\cvsubsection{PhD}}% head
-    {\underline{Defense Date / {\entrydatestyle{Advisor}}}}% green
-    {}% flushright grey
-    {}% 
+\section*{{\iconstyle{\faIcon{users}}} Thesis Committee Member}
 \vspace{-0.5cm}
+
+\cventryheader
+{PhD}% subsection
+{{\color{dark-teal}Defense Date} / Advisor}% green
+
+\vspace{-0.25cm}
+
+\begin{cventries}
 \DTLforeach{committee}{%
 \person=person,%
 \date=Date,%
@@ -316,22 +321,22 @@
     {\entrypositionstyle{\textbf \dotfill}\date}% green
     {\advisor}% flushright grey
     {}%
+    
     }%
     {}%
 }%
 
-
 \end{cventries}
 
+\vspace{-.3cm}
+
+\cventryheader
+{Masters}% subsection
+{{\color{dark-teal}Defense Date} / Advisor}% green
+
+\vspace{-0.25cm}
 
 \begin{cventries}%
-\cventry%
-    {} % subhead
-    {\hspace{-0.1cm}\cvsubsection{Masters}}% head
-    {\underline{Defense Date / {\entrydatestyle{Advisor}}}}% green
-    {}% flushright grey
-    {}% 
-\vspace{-0.5cm}%
 \DTLforeach{committee}{%
 \person=person,%
 \date=Date,%
@@ -346,9 +351,10 @@
     {\entrypositionstyle{\textbf \dotfill}\date}% green
     {\advisor}% flushright grey
     {}%
+    
     }%    
 }}%
-
+\end{cventries}
 
 %  \cventry
 %     {PhD Computer Science at Georgia Tech} % subhead
@@ -389,4 +395,3 @@
 
    
 
-\end{cventries}

@@ -3,10 +3,12 @@
 %-------------------------------------------------------------------------------
 %\newpage
 %{\color{black}\fontsize{12pt}{1em}} 
-\cvsection{\faIcon{comments}}{Professional Activities}
+
+\vspace{-12pt}
+\section*{{\iconstyle{\faIcon{comments}}} Professional Activities}
 
 \DTLloaddb[]{professional}{cv/professional.csv}
-\cvsubsection{Summary}
+\subsection*{Summary}
 \def\organizer{0}
 \def\chair{0}
 \def\reviewer{0}
@@ -65,7 +67,7 @@
 \vspace{10pt}
 
 
-\cvsubsection{Organizer and Guest Editor Positions}
+\subsection*{Organizer and Guest Editor Positions}
 
 
 \begin{cventries}
@@ -90,7 +92,7 @@
 
 
 \vspace{10pt}
-\cvsubsection{Other Chair Positions}
+\subsection*{Other Chair Positions}
 
 \begin{cventries}
 \DTLforeach[\equal{\generalRole}{Chair}]{professional}{%
@@ -112,7 +114,7 @@
 \end{cventries}
 \vspace{10pt}
 
-\cvsubsection{Grant Reviewer}
+\subsection*{Grant Reviewer}
 \begin{cventries}
 \DTLforeach[\equal{\generalRole}{GrantReview}]{professional}{%
 \projectname=ConferenceName,%
@@ -133,7 +135,7 @@
 \end{cventries}
 \vspace{10pt}
 
-\cvsubsection{Journal Reviewer}
+\subsection*{Journal Reviewer}
 \begin{cventries}
 \DTLforeach[\equal{\role}{Journal Reviewer}]{professional}{%
 \projectname=ConferenceName,%
@@ -154,7 +156,7 @@
 
 
 
-\cvsubsection{ACL Rolling Review}
+\subsection*{ACL Rolling Review}
 \begin{cventries}
 \DTLforeach[\equal{\role}{ACL Rolling Review}]{professional}{%
 \projectname=ConferenceName,%
@@ -174,10 +176,10 @@
 }
 \end{cventries}
 
-%\vspace{10pt}
-\newpage
+\vspace{10pt}
 
-\cvsubsection{Program Committee Member (Reviewer)}
+
+\subsection*{Program Committee Member (Reviewer)}
 \begin{cventries}
 \DTLsort{sortDate=descending}{professional}
 \DTLforeach[\equal{\role}{Program Committee Member}]{professional}{%
@@ -195,6 +197,7 @@
     {\date} % green
     {\location} % flushright grey
     {}%
+    
 }
 \end{cventries}
 
