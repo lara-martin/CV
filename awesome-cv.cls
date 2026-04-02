@@ -423,6 +423,7 @@ citestyle=numeric-comp,
 % Defines writer's mobile (optional)
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
+\newcommand*{\mobileFormatted}[1]{\def\@mobileFormatted{#1}}
 
 % Defines writer's email (optional)
 % Usage: \email{<email address>}
@@ -617,7 +618,7 @@ citestyle=numeric-comp,
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \faMobile\acvHeaderIconSep\@mobile%
+          \MYhref[top-links]{tel:\@mobile}{\faPhone\acvHeaderIconSep\@mobileFormatted}%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%

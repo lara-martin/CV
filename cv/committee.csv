@@ -1,10 +1,11 @@
-person,Date,location,degree,advisor
-Tung Duong Ta,TBD,UMBC,PhD Computer Science,Dr. Tim Oates
-Michael Majurski,TBD,UMBC,PhD Computer Science,Dr. Cynthia Matuszek
-Sai Vallurupalli,TBD,UMBC,PhD Computer Science,Dr. Frank Ferraro
-Amal Alabdulkarim,Expected 2026,Georgia Institute of Technology,PhD Computer Science,Dr. Mark Riedl
-Shahin Hossain,Expected 2026,UMBC,"PhD Language, Literacy, and Culture",Dr. Ramon Goings
-An May,Expected 2026,UMBC,MS Computer Science,Dr. Cynthia Matuszek
-Kaoru Seki,"November 5, 2025",UMBC,MS Human-Centered Computing,Dr. Yasmine Kotturi
-Santiago G\'ongora,"August 11, 2025","Universidad de la Rep\'ublica, Uruguay",MS Computer Science,Dr. Luis Chiruzzo
-Ekele Ogbadu,"April 26, 2024",UMBC,MS Computer Science,Dr. Cynthia Matuszek
+person,Date,location,degree,advisor,thesis
+Shubhashis Roy Dipta,Expected 2027,UMBC,PhD Computer Science,Dr. Frank Ferraro,"Decomposing Meaning: Semantic Structure for Event Modeling, Video Retrieval, and Claim Verification"
+Tung Duong Ta,Expected 2027,UMBC,PhD Computer Science,Dr. Tim Oates,Retrieval-Based Derendering for Low-Resource Vietnamese Handwriting Recognition
+Sai Vallurupalli,Expected 2027,UMBC,PhD Computer Science,Dr. Frank Ferraro,Leveraging Entities \& States for Situation and Outcome Understanding
+Michael Majurski,Expected 2026,UMBC,PhD Computer Science,Dr. Cynthia Matuszek,Grounding Language Model Generation in Documents with Dynamic Factuality Verifiers
+Amal Alabdulkarim,Expected 2026,Georgia Institute of Technology,PhD Computer Science,Dr. Mark Riedl,Temporality in Sequential Explainable AI
+Shahin Hossain,"April 22, 2026",UMBC,"PhD Language, Literacy, and Culture",Dr. Ramon Goings,Measuring College Students’ Reliance on Large Language Models in Academic Writing:  Impacts and Insights from a Mixed-Methods Study
+An May,"March 27, 2026",UMBC,MS Computer Science,Dr. Cynthia Matuszek,Understanding Directive Speech Towards Machines
+Kaoru Seki,"November 5, 2025",UMBC,MS Human-Centered Computing,Dr. Yasmine Kotturi,Student-Driven Recommendations for AI Policy in a Design Classroom
+Santiago G\'ongora,"August 11, 2025","Universidad de la Rep\'ublica, Uruguay",MS Computer Science,Dr. Luis Chiruzzo,Approaches to Interactive and Improvisational Storytelling
+Ekele Ogbadu,"April 26, 2024",UMBC,MS Computer Science,Dr. Cynthia Matuszek,Statistical Language and Neural Network Models: Classifying Human Instructions in Situated Robot Command
