@@ -110,10 +110,9 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[
 backend=biber,
-%style=ieee,
 sorting=ymn,
 maxnames=30,
-giveninits=true,
+giveninits=false,
 %defernumbers=true,
 sortcites=true,
 citestyle=numeric-comp,
@@ -911,6 +910,18 @@ leftmargin=\hintscolumnwidth+\separatorcolumnwidth+\labelwidth+\labelsep}
       \entrytitlestyle{#2}\newline{}\entrypositionstyle{#1}\newline{}\entrydatestyle{#5} & \entrylocationstyle{#3}\newline{}\entrylocationstylebold{#4}\newline{}\entrydatestyle{#6} 
       \ifempty{#7}{}{\\
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#7}}}
+  \end{tabular*}%
+  \par\addvspace{0pt} 
+}
+
+\newcommand*{\cvaward}[5]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
+    \entrytitlestyle{#2}\newline{}\entrypositionstyle{#1} & \entrylocationstyle{#3}\newline{}\entrylocationstylebold{#4} 
+      \ifempty{#5}{}{\\
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
   \end{tabular*}%
   \par\addvspace{0pt} 
 }

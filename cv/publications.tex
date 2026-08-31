@@ -5,7 +5,7 @@
 
 \section*{{\iconstyle{\faIcon{paper-plane}}} Publications}
 \vspace{0.5em}
-\defbibnote{bothnote}{ {\footnotesize $^*$equal contribution, $^\dagger$presented}}
+\defbibnote{bothnote}{ {\footnotesize $^*$equal contribution, $^\dagger$presented, Students advised or co-advised are \underline{underlined}}}
 \defbibnote{presented}{ {\footnotesize $^\dagger$presented}}
 
 \nocite{*}
@@ -14,12 +14,16 @@
 %\vspace{10pt}
 \newpage
 \printbibliography[prenote=bothnote, keyword={conference}, title=Conference Proceedings]
-\vspace{10pt}
+%\vspace{10pt}
+\newpage
 \printbibliography[prenote=bothnote, keyword={workshop}, title=Peer-Reviewed Workshop Papers]
 \vspace{10pt}
-\printbibliography[keyword={other}, title=Other Publications]
-\vspace{10pt}
 \printbibliography[keyword={preprint}, title=Preprints]
+\vspace{10pt}
+\printbibliography[keyword={student}, title=Student Publications]
+\newpage
+\printbibliography[keyword={other}, title=Other Publications]
+
 %\vspace{10pt}
 %\printbibliography[keyword={submission}, title=In Submission]
 
