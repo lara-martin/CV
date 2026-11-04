@@ -235,6 +235,14 @@
 %\vspace{-2mm}
 
 \begin{cventries}
+    \cventry
+    {CWIT Scholars}
+    {Shrikant Bhatnagar}
+    {Fall 2026 -- Present}
+    {}
+    {}
+    
+\vspace{0.05cm}
  \cventry
     {Frontier Technology Institute (formerly The Coding School)} % subhead
     {Anderson Hwang, Roshan Johnson, and Siddharth Movva}% head
@@ -321,7 +329,8 @@
 \date=Date,%
 \location=location,%
 \degree=degree,%
-\advisor=advisor}%
+\advisor=advisor,
+\thesis=thesis}%
 {%
 \IfSubStr{\degree}{PhD}{
  \cventry
@@ -329,7 +338,7 @@
     {\person\entrypositionstyle{\dotfill}}% head
     {\entrypositionstyle{\textbf \dotfill}\date}% green
     {\advisor}% flushright grey
-    {}%
+    {}%{\DTLifnullorempty{\thesis}{}{Thesis: \thesis}}%
     
     }%
     {}%
